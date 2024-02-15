@@ -1,27 +1,11 @@
-// backend/server.js
 const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
-const app = express();
-const port = process.env.PORT || 3001;
-
-app.use(cors());
-app.use(bodyParser.json());
-
-// MongoDB connection
-mongoose.connect('mongodb://localhost/petstore', { useNewUrlParser: true, useUnifiedTopology: true });
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
-// User model
-const User = require('./models/user');
+const router = express.Router();
+const User = require('../models/user'); // Import or define your User model
 
 // Login route
-app.post('/api/login', async (req, res) => {
+router.post('/login', async (req, res) => {
   try {
     const { username, password } = req.body;
 
@@ -44,6 +28,5 @@ app.post('/api/login', async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+module.exports = router;
+
