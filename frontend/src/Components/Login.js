@@ -1,6 +1,7 @@
 // frontend/src/components/Login.js
 import React, { useState } from 'react';
 import NavigationBar from './Navbar';
+import Footer from './Footer';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -49,6 +50,8 @@ const Login = () => {
           Login
         </button>
       </form>
+
+      <Footer />
     </div>
   );
 };
