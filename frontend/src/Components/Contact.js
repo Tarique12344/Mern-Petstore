@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NavigationBar from './Navbar';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -31,6 +32,9 @@ const Contact = () => {
 
   return (
     <div>
+      <div>
+        <NavigationBar />
+      </div>
       <h2>Contact Us</h2>
       <form>
         <label>
