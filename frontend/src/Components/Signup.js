@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NavigationBar from './Navbar';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
@@ -23,6 +24,8 @@ const SignUp = () => {
 
   return (
     <div>
+  <NavigationBar />
+      <div>
       <h2>Sign Up</h2>
       <form>
         <label>
@@ -40,6 +43,7 @@ const SignUp = () => {
         </button>
       </form>
     </div>
+  </div>
   );
 };
 

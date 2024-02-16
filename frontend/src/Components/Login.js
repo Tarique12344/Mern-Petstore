@@ -1,5 +1,6 @@
 // frontend/src/components/Login.js
 import React, { useState } from 'react';
+import NavigationBar from './Navbar';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -29,6 +30,9 @@ const Login = () => {
 
   return (
     <div>
+      <div>
+        <NavigationBar />
+      </div>
       <h2>Login</h2>
       <form>
         <label>
