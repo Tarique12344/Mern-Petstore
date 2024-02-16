@@ -1,5 +1,6 @@
 import React from 'react'
 import NavigationBar from './Navbar';
+import Footer from './Footer';
 
 const About = () => {
   return (
@@ -7,6 +8,8 @@ const About = () => {
       <NavigationBar />
 
       <div>About</div>
+
+      <Footer />
     </div>
   )
 }

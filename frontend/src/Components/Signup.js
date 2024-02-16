@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NavigationBar from './Navbar';
+import Footer from './Footer';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
@@ -43,6 +44,8 @@ const SignUp = () => {
         </button>
       </form>
     </div>
+
+    <Footer />
   </div>
   );
 };
