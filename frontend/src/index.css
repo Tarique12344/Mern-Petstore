@@ -1,9 +1,10 @@
 body {
-  background-color:  #A67B5B;
+  background-color:   #5F8246;
   margin: 0;
-  color: bisque;
+  color: burlywood;
   h1, h2, h3{
     color: blanchedalmond;
+    font-family: Montserrat;
   }
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -16,4 +17,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.NavigationBar{
+  padding: 10px;
+  border-bottom: 3px solid #495057;
+  transition: background-color 0.3s ease;
+}
+.nav-link {
+  padding: 10px 15px; 
+  margin-right: 10px; 
+  color: #ffffff;
+  transition: color 0.3s ease;
+  align-items: self-end;
+}
