@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
 
-const SignUp = () => {
+
+const Signup = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSignUp = async () => {
+  const handleSignup = async () => {
     try {
       const response = await fetch('http://localhost:5000/signup', {
         method: 'POST',
@@ -17,17 +20,33 @@ const SignUp = () => {
       });
 
       const data = await response.json();
-      console.log(data); // handle success or error messages
+
+      if (response.ok) {
+        console.log('Signup successful:', data.message);
+        // Redirect to the login page after successful signup
+        navigate('/login', { replace: true });
+      } else {
+        console.error('Signup failed:', data.message);
+        alert('Signup failed. Please try again.');
+      }
     } catch (error) {
       console.error('Error during signup:', error);
+      alert('Error during signup. Please try again later.');
     }
   };
 
+  useEffect(() => {
+    // Clear input fields after successful signup
+    setUsername('');
+    setPassword('');
+  }, []);
+
   return (
     <div>
-  <NavigationBar />
-      <div>
-      <h2>Sign Up</h2>
+    <div>
+      <NavigationBar />
+    </div>
+      <h2>Signup</h2>
       <form>
         <label>
           Username:
@@ -39,15 +58,14 @@ const SignUp = () => {
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
         <br />
-        <button type="button" onClick={handleSignUp}>
-          Sign Up
+        <button type="button" onClick={handleSignup}>
+          Signup
         </button>
       </form>
+      <Footer />
     </div>
-
-    <Footer />
-  </div>
+    
   );
 };
 
-export default SignUp;
+export default Signup;

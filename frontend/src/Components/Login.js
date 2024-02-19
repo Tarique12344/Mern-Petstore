@@ -1,15 +1,22 @@
-// frontend/src/components/Login.js
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
+
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('/login', {
+      setLoading(true);
+      setErrorMessage('');
+
+      const response = await fetch('http://localhost:5000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -19,21 +26,26 @@ const Login = () => {
 
       const data = await response.json();
 
-      // Save the token to local storage or session storage
-      localStorage.setItem('token', data.token);
-
-      // Redirect to the homepage
-      window.location.href = '/';
+      if (response.ok) {
+        console.log('Login successful');
+        // Redirect to the home page after successful login
+        navigate('/');
+      } else {
+        console.error('Login failed:', data.message);
+        setErrorMessage('Invalid credentials. Please try again.');
+      }
     } catch (error) {
       console.error('Error during login:', error);
+      setErrorMessage('Error during login. Please try again later.');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div>
-      <div>
         <NavigationBar />
-      </div>
+    <div>
       <h2>Login</h2>
       <form>
         <label>
@@ -46,12 +58,13 @@ const Login = () => {
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
         <br />
-        <button type="button" onClick={handleLogin}>
-          Login
+        <button type="button" onClick={handleLogin} disabled={loading}>
+          {loading ? 'Logging In...' : 'Login'}
         </button>
+        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       </form>
-
-      <Footer />
+    </div>
+    <Footer />
     </div>
   );
 };
