@@ -1,39 +1,46 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
-
+const { isEmail } = require('validator')
+const bcrypt = require('bcrypt')
 const userSchema = new mongoose.Schema({
-  username: { type: String, unique: true },
-  password: {
-    type: String,
-    required: true,
-    validate: {
-      validator: function (password) {
-        // Check if the password meets the complexity requirements
-        const minLength = 6;
-        const capitalLetterRegex = /[A-Z]/;
-        const specialCharacterRegex = /[!@#$%^&*(),.?":{}|<>]/;
-
-        return (
-          password.length >= minLength &&
-          capitalLetterRegex.test(password) &&
-          specialCharacterRegex.test(password)
-        );
-      },
-      message:
-        'Password must be at least six characters long and contain at least one capital letter and one special character',
+    email: {
+        type: String,
+        required: [true, 'Please enter an email'],
+        unique: true,
+        lowercase: true,
+        validate: [isEmail, 'Please enter a valid email']
     },
-  },
-});
+    password: {
+        type: String,
+        required: [true, 'Please enter a password'],
+        minlength: [6, 'Minimum length is 6 characters']
+    }
 
-// Hash the password before saving it to the database
-userSchema.pre('save', async function (next) {
-  try {
-    const hashedPassword = await bcrypt.hash(this.password, 10);
-    this.password = hashedPassword;
-    next();
-  } catch (error) {
-    next(error);
-  }
-});
-const User = mongoose.model('User', userSchema);
+})
+
+userSchema.statics.login = async function(email, password){
+    const user = await this.findOne({email});
+    if(user){
+        const auth = await bcrypt.compare(password, user.password)
+        if(auth){
+            return user;
+        }
+        throw Error('incorrect password')
+    }
+    throw Error('incorrect email')
+}
+
+userSchema.post('save', function (doc, next){
+    console.log('new user was created and saved', doc)
+    next()
+})
+
+userSchema.pre('save', async function(next){
+    const salt = await bcrypt.genSalt();
+    this.password = await bcrypt.hash(this.password, salt)
+    console.log('user about to be created and saved', this);
+    next()
+})
+
+const User = mongoose.model('user', userSchema)
+
 module.exports = User

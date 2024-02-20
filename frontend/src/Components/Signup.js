@@ -5,7 +5,7 @@ import Footer from './Footer';
 
 
 const Signup = () => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const Signup = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json();
@@ -37,7 +37,7 @@ const Signup = () => {
 
   useEffect(() => {
     // Clear input fields after successful signup
-    setUsername('');
+    setEmail('');
     setPassword('');
   }, []);
 
@@ -50,7 +50,7 @@ const Signup = () => {
       <form>
         <label>
           Username:
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+          <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
         </label>
         <br />
         <label>
