@@ -16,7 +16,11 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-
+}
+.Navbar{
+  border-top: #826f46;
+  border-bottom: #495057;
+  margin: 40px;
 }
 .NavigationBar{
   background-color: #2C3E50; 
@@ -26,7 +30,7 @@ code {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 1.9); 
   background: linear-gradient(to right, #3498db, #2c3e50); 
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 .Navbar-container {
   border: 2px solid #826f46; 
