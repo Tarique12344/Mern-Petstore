@@ -49,7 +49,7 @@ const Signup = () => {
       <h2>Signup</h2>
       <form>
         <label>
-          Username:
+          Email:
           <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
         </label>
         <br />

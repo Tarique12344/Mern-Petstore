@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
 
-
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,7 +22,6 @@ const Login = () => {
         },
         body: JSON.stringify({ email, password }),
       });
-      
 
       const data = await response.json();
 
@@ -45,27 +43,27 @@ const Login = () => {
 
   return (
     <div>
-        <NavigationBar />
-    <div>
-      <h2>Login</h2>
-      <form>
-        <label>
-          Username:
-          <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <br />
-        <button type="button" onClick={handleLogin} disabled={loading}>
-          {loading ? 'Logging In...' : 'Login'}
-        </button>
-        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-      </form>
-    </div>
-    <Footer />
+      <NavigationBar isAuthenticated={false} /> {/* Pass isAuthenticated prop as false for login page */}
+      <div>
+        <h2>Login</h2>
+        <form>
+          <label>
+            Username:
+            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+          </label>
+          <br />
+          <label>
+            Password:
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          </label>
+          <br />
+          <button type="button" onClick={handleLogin} disabled={loading}>
+            {loading ? 'Logging In...' : 'Login'}
+          </button>
+          {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+        </form>
+      </div>
+      <Footer />
     </div>
   );
 };
