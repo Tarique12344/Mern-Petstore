@@ -1,9 +1,20 @@
 // Navbar.js
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
+import { Link, useNavigate } from 'react-router-dom';
 
 const NavigationBar = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Perform logout logic here (clear cookies, JWT, etc.)
+    // For demonstration, we'll just update the state and navigate to the home page.
+    setIsAuthenticated(false);
+    navigate('/');
+  };
+
   return (
     <Navbar className="Navbar" bg="dark" variant="dark" expand="lg" fixed="top">
       <Container>
