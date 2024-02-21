@@ -16,16 +16,41 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+
 }
 .NavigationBar{
+  background-color: #2C3E50; 
   padding: 10px;
   border-bottom: 3px solid #495057;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 1.9); 
+  background: linear-gradient(to right, #3498db, #2c3e50); 
+  display: flex;
+  align-items: center;
 }
+.Navbar-container {
+  border: 2px solid #826f46; 
+  background-color: #6d8246; 
+  border-radius: 10px;
+  overflow: hidden;
+}  
+
 .nav-link {
   padding: 10px 15px; 
   margin-right: 10px; 
   color: #ffffff;
   transition: color 0.3s ease;
-  align-items: self-end;
+  align-items: center;
+  font-weight: bold;
+  display: inline-block;
+}
+.nav-link:hover {
+  color: #FFD700; 
+}
+.Navbar.Brand {
+  max-width: 50px; 
+  max-height: 50px; 
+}
+.nav-link.button {
+  color: #ff8009c4;
 }
