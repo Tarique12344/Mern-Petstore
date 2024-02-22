@@ -49,8 +49,8 @@ const Login = () => {
         <div className="row justify-content-center">
           <div className="col-md-6">
             <div className="card">
-              <div className="card-body">
-                <h2 className="card-title text-center mb-4">Login</h2>
+              <div className="card-body card-content">
+                <h2 className="card-title text-center mb-4 login">Login</h2>
                 <form>
                   <div className="mb-3">
                     <label htmlFor="username" className="form-label">
@@ -76,8 +76,8 @@ const Login = () => {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
-                  <div className="text-center">
-                    <button type="button" onClick={handleLogin} disabled={loading} className="btn btn-primary">
+                  <div className="text-center button">
+                    <button type="button" onClick={handleLogin} disabled={loading} className="btn btn-success">
                       {loading ? 'Logging In...' : 'Login'}
                     </button>
                   </div>

@@ -6,6 +6,10 @@ body {
     color: blanchedalmond;
     font-family: Montserrat;
   }
+  .box.text-box{
+    margin-bottom: 20px;
+    margin-top: 30px;
+  }
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -20,7 +24,13 @@ code {
 .Navbar{
   border-top: #826f46;
   border-bottom: #495057;
+<<<<<<< HEAD
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 40px;
+=======
   /* margin: 40px; */
+>>>>>>> 8af0b3f014d1348fe4d1a780253e20b981c4543c
 }
 .NavigationBar{
   background-color: #2C3E50; 
@@ -41,9 +51,11 @@ code {
 
 .nav-link {
   padding: 10px 15px; 
+  padding-left: 10px;
   margin-right: 10px; 
   color: #ffffff;
   transition: color 0.3s ease;
+  font-weight: bold;
   align-items: center;
   font-weight: bold;
   display: inline-block;
@@ -51,10 +63,34 @@ code {
 .nav-link:hover {
   color: #FFD700; 
 }
+
 .Navbar.Brand {
   max-width: 50px; 
   max-height: 50px; 
 }
 .nav-link.button {
   color: #ff8009c4;
+}
+.contact-container{
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+.login{
+  border-color: #5F8246;
+  border-top: yellowgreen;
+  border-bottom: yellowgreen;
+  border-width: 20px;
+  font-weight: 300;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+ 
+}
+.card.title{
+  border-top: 10px;
+}
+.mb-3{
+  font-weight: 100;
+ border: 1px;
+}
+.button:hover{
+ color:#FFD700
 }
