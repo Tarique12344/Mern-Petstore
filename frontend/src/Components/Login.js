@@ -43,6 +43,54 @@ const Login = () => {
 
   return (
     <div>
+<<<<<<< HEAD
+      <NavigationBar />
+
+      <div className="container mt-5">
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <div className="card">
+              <div className="card-body">
+                <h2 className="card-title text-center mb-4">Login</h2>
+                <form>
+                  <div className="mb-3">
+                    <label htmlFor="username" className="form-label">
+                      Username:
+                    </label>
+                    <input
+                      id="username"
+                      type="text"
+                      className="form-control"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="password" className="form-label">
+                      Password:
+                    </label>
+                    <input
+                      id="password"
+                      type="password"
+                      className="form-control"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+                  <div className="text-center">
+                    <button type="button" onClick={handleLogin} disabled={loading} className="btn btn-primary">
+                      {loading ? 'Logging In...' : 'Login'}
+                    </button>
+                  </div>
+                  {errorMessage && <p className="text-center mt-3" style={{ color: 'red' }}>{errorMessage}</p>}
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+=======
       <NavigationBar isAuthenticated={false} /> {/* Pass isAuthenticated prop as false for login page */}
       <div>
         <h2>Login</h2>
@@ -63,6 +111,7 @@ const Login = () => {
           {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
         </form>
       </div>
+>>>>>>> 935218b0523dbe4a80735ee57125ce85a7c7dbcd
       <Footer />
     </div>
   );
