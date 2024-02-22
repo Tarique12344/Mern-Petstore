@@ -20,7 +20,7 @@ code {
 .Navbar{
   border-top: #826f46;
   border-bottom: #495057;
-  margin: 40px;
+  /* margin: 40px; */
 }
 .NavigationBar{
   background-color: #2C3E50; 

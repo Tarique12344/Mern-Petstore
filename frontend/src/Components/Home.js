@@ -9,8 +9,8 @@ const Home = () => {
   return (
     <div>
       <NavigationBar />
-
-      <Container fluid className="my-4">
+    <br></br>
+      <Container fluid className="mt-5">
         <Row>
           {/* Static Photo Box */}
           <Col md={6}>
