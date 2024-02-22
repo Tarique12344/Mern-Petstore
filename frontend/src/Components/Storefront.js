@@ -2,18 +2,18 @@
 import React from 'react';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
-import pic from './Carousel1_pics/Playing_1.jpg'
+import { Container, Carousel, Row, Col } from 'react-bootstrap';
 
 
 
-const StoreFront = () => {
+const Storefront = () => {
   const pictureData = [
-    { id: 1, src: './Carousel1_pics/Playing_1.jpg', description: 'Two friends playing' },
-    { id: 2, src: './Carousel1_pics/Playing_2.jpg', description: 'Playing in the backyard' },
+    { id: 1, src: require('./Carousel1_pics/Playing_1.jpg').default, description: 'Two friends playing' },
+    { id: 2, src: require('./Carousel1_pics/Playing_2.jpg').default, description: 'Playing in the backyard' },
     { id: 3, src: './Carousel1_pics/Playing_3.jpg', description: 'Cat and Dog frolicking' },
     { id: 4, src: './Carousel1_pics/Playing_4.jpg', description: 'Curious pack of dogs in the park' },
     { id: 5, src: './Carousel1_pics/Playing_5.jpg', description: 'The Family Pet' },
-    { id: 6, src: './Adoption_pics/Dog_1_resized.jpg', description: 'Meet Midas. He likes swimming, herding sheep, and technical writing. He\'s not a big fan of the USPS, though' },
+    { id: 6, src: require('./Adoption_pics/Dog_1_resized.jpg').default, description: 'Meet Midas. He likes swimming, herding sheep, and technical writing. He\'s not a big fan of the USPS, though' },
     { id: 7, src: './Adoption_pics./Dog_2_resized.jpg', description: 'Say hi to Ace! He\'s a spaz.' },
     { id: 8, src: './Adoption_pics./Dog_3_resized.jpg', description: 'This is Zeus. He is much more gentle than his namesake and is (ironically) scared of lightning.' },
     { id: 9, src: './Adoption_pics./Cat_1_resized.jpg', description: 'Meet Willow. She\'s a gentle soul waiting to meet you' },
@@ -39,34 +39,55 @@ const StoreFront = () => {
   return (
     <div>
       <NavigationBar />
-      <div className='container'>
-        <div className='carousel'>
-          <div id="carouselExample" className="carousel slide">
-            <div className="carousel-inner">
-              {pictureData.map((picture, index) => (
-                <div key={picture.id} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                  <img src={pic} className="d-block w-100" alt={`Slide ${picture.id}`} />
-                  <div className="carousel-caption d-none d-md-block">
-                    <p>{picture.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span className="visually-hidden">Previous</span>
-            </button>
-            <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-              <span className="carousel-control-next-icon" aria-hidden="true"></span>
-              <span className="visually-hidden">Next</span>
-            </button>
-          </div>
-        </div>
-      </div>
+      <Container style={{ marginTop: '50px' }}>
+        {/* Top Carousel */}
+        <Carousel interval={5000}>
+          {pictureData.slice(0, 5).map((picture) => (
+            <Carousel.Item key={picture.id}>
+              <img
+                className="d-block w-100"
+                src={picture.src}
+                alt={`Slide ${picture.id}`}
+                height="400"
+              />
+            </Carousel.Item>
+          ))}
+        </Carousel>
+
+        {/* Bottom Carousel with two rows */}
+        <Carousel className="mt-3" indicators={false} interval={null}>
+          <Row>
+            {pictureData.slice(5, 10).map((picture) => (
+              <Col key={picture.id} md={2} className="mb-2">
+                <img
+                  src={picture.src}
+                  alt={`Image ${picture.id}`}
+                  className="img-fluid"
+                  height="80"
+                />
+                <p className="mt-2">{picture.description}</p>
+              </Col>
+            ))}
+          </Row>
+          <Row>
+            {pictureData.slice(10, 15).map((picture) => (
+              <Col key={picture.id} md={2} className="mb-2">
+                <img
+                  src={picture.src}
+                  alt={`Image ${picture.id}`}
+                  className="img-fluid"
+                  height="80"
+                />
+                <p className="mt-2">{picture.description}</p>
+              </Col>
+            ))}
+          </Row>
+        </Carousel>
+      </Container>
+
       <Footer />
     </div>
   );
+};
 
-}
-
-export default StoreFront
+export default Storefront;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -33,7 +34,40 @@ const Contact = () => {
     }
   };
 
+<<<<<<< HEAD
 
+=======
+  return (
+    <div>
+<<<<<<< HEAD
+      <NavigationBar />
+      <br></br>
+      <Container className="mt-5">
+        <Row className="justify-content-center">
+          <Col md={6}>
+            <h2>Contact Us</h2>
+            <Form>
+              <Form.Group controlId="formName">
+                <Form.Label>Name:</Form.Label>
+                <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} />
+              </Form.Group>
+              <Form.Group controlId="formEmail">
+                <Form.Label>Email:</Form.Label>
+                <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              </Form.Group>
+              <Form.Group controlId="formMessage">
+                <Form.Label>Message:</Form.Label>
+                <Form.Control as="textarea" rows={3} value={message} onChange={(e) => setMessage(e.target.value)} />
+              </Form.Group>
+              <Button variant="primary" type="button" onClick={handleSubmit}>
+                Submit
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
+=======
+>>>>>>> 34a85f1e9cd8921f846cbe1adbb99d5d1777ddee
      return (
     <div>
           <div className='contact-container mb-3'></div>
@@ -63,6 +97,7 @@ const Contact = () => {
         </button>
       </form>
 
+>>>>>>> 47eedd61fd7d1b749a488d60a61c38bc56a293b9
       <Footer />
     </div>
      )
