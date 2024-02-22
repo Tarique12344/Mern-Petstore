@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -9,7 +9,7 @@ import StoreFront from './components/Storefront';
 
 const App = () => {
   return (
-    <Router>
+
       <div>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -21,7 +21,7 @@ const App = () => {
 />
         </Routes>
       </div>
-    </Router>
+
   );
 };
 

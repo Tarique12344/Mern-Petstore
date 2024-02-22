@@ -8,7 +8,12 @@ import { Container, Row, Col, Carousel } from 'react-bootstrap';
 const Home = () => {
   return (
     <div>
+<<<<<<< HEAD
       <NavigationBar />
+=======
+  <NavigationBar />
+    <div></div>
+>>>>>>> 935218b0523dbe4a80735ee57125ce85a7c7dbcd
 
       <Container fluid className="my-4">
         <Row>
