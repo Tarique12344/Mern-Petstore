@@ -43,15 +43,14 @@ const Login = () => {
 
   return (
     <div>
-<<<<<<< HEAD
       <NavigationBar />
 
       <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-md-6">
             <div className="card">
-              <div className="card-body">
-                <h2 className="card-title text-center mb-4">Login</h2>
+              <div className="card-body card-content">
+                <h2 className="card-title text-center mb-4 login">Login</h2>
                 <form>
                   <div className="mb-3">
                     <label htmlFor="username" className="form-label">
@@ -77,8 +76,8 @@ const Login = () => {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
-                  <div className="text-center">
-                    <button type="button" onClick={handleLogin} disabled={loading} className="btn btn-primary">
+                  <div className="text-center button">
+                    <button type="button" onClick={handleLogin} disabled={loading} className="btn btn-success">
                       {loading ? 'Logging In...' : 'Login'}
                     </button>
                   </div>
@@ -90,28 +89,6 @@ const Login = () => {
         </div>
       </div>
 
-=======
-      <NavigationBar isAuthenticated={false} /> {/* Pass isAuthenticated prop as false for login page */}
-      <div>
-        <h2>Login</h2>
-        <form>
-          <label>
-            Username:
-            <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-          </label>
-          <br />
-          <label>
-            Password:
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          </label>
-          <br />
-          <button type="button" onClick={handleLogin} disabled={loading}>
-            {loading ? 'Logging In...' : 'Login'}
-          </button>
-          {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-        </form>
-      </div>
->>>>>>> 935218b0523dbe4a80735ee57125ce85a7c7dbcd
       <Footer />
     </div>
   );

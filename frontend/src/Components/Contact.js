@@ -6,6 +6,7 @@ const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  
 
   const handleSubmit = async () => {
     try {
@@ -16,6 +17,7 @@ const Contact = () => {
         },
         body: JSON.stringify({ name, email, message }),
       });
+      
 
       const data = await response.json();
 
@@ -33,6 +35,9 @@ const Contact = () => {
 
   return (
     <div>
+     return (
+          <div className='contact-container'></div>
+        )
       <div>
         <NavigationBar />
       </div>
