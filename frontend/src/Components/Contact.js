@@ -33,11 +33,11 @@ const Contact = () => {
     }
   };
 
-  return (
-    <div>
+
      return (
-          <div className='contact-container'></div>
-        )
+    <div>
+          <div className='contact-container mb-3'></div>
+     
       <div>
         <NavigationBar />
       </div>
@@ -65,7 +65,7 @@ const Contact = () => {
 
       <Footer />
     </div>
-  );
+     )
 };
 
 export default Contact;
