@@ -1,54 +1,55 @@
-// components/PetForm.js
+// PetForm.js
 import React, { useState } from 'react';
 
-const PetForm = ({ onAddPet }) => {
+const PetForm = () => {
   const [name, setName] = useState('');
-  const [breed, setBreed] = useState('');
+  const [description, setDescription] = useState('');
   const [age, setAge] = useState('');
+  const [image, setImage] = useState(null);
 
-  const handleAddPet = async () => {
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    setImage(file);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('age', age);
+    formData.append('image', image);
+
     try {
-      // Perform validation if needed
-
-      // Create a new pet object
-      const newPet = { name, breed, age: parseInt(age) };
-
-      // Send a POST request to the server
-      const response = await fetch('http://localhost:5000/pets', {
+      const response = await fetch('http://localhost:5000/pet', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newPet),
+        body: formData,
       });
 
-      // Check if the request was successful
       if (response.ok) {
-        // Parse the response as JSON
-        const data = await response.json();
-
-        // Notify the parent component about the new pet
-        onAddPet(data);
+        console.log('Pet added successfully');
+        // Handle success, e.g., redirect to another page
       } else {
-        console.error('Failed to add pet:', response.statusText);
+        console.error('Error adding pet:', response.statusText);
       }
     } catch (error) {
-      console.error('Error adding pet:', error);
+      console.error('Error adding pet:', error.message);
     }
   };
 
   return (
     <div>
-      <h2>Add a New Pet</h2>
-      <form>
+      <h2>Add a Pet</h2>
+      <form onSubmit={handleSubmit}>
         <label>
           Name:
           <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
         </label>
         <br />
         <label>
-          Breed:
-          <input type="text" value={breed} onChange={(e) => setBreed(e.target.value)} />
+          Description:
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
         </label>
         <br />
         <label>
@@ -56,9 +57,12 @@ const PetForm = ({ onAddPet }) => {
           <input type="number" value={age} onChange={(e) => setAge(e.target.value)} />
         </label>
         <br />
-        <button type="button" onClick={handleAddPet}>
-          Add Pet
-        </button>
+        <label>
+          Image:
+          <input type="file" accept="image/*" onChange={handleImageChange} />
+        </label>
+        <br />
+        <button type="submit">Add Pet</button>
       </form>
     </div>
   );
