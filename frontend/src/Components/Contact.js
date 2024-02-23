@@ -34,9 +34,6 @@ const Contact = () => {
     }
   };
 
-<<<<<<< HEAD
-
-=======
   return (
     <div>
       <NavigationBar />
@@ -65,10 +62,6 @@ const Contact = () => {
           </Col>
         </Row>
       </Container>
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 34a85f1e9cd8921f846cbe1adbb99d5d1777ddee
      return (
     <div>
           <div className='contact-container mb-3'></div>
@@ -98,9 +91,8 @@ const Contact = () => {
         </button>
       </form>
 
->>>>>>> 47eedd61fd7d1b749a488d60a61c38bc56a293b9
->>>>>>> 2c4587e116e8a0e33108190426f125b87710bd34
       <Footer />
+    </div>
     </div>
      )
 };
