@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  
 
   const handleSubmit = async () => {
     try {
@@ -18,15 +17,16 @@ const Contact = () => {
         },
         body: JSON.stringify({ name, email, message }),
       });
-      
 
       const data = await response.json();
 
       if (response.ok) {
-        // Handle successful form submission, such as showing a success message
         console.log('Contact form submitted successfully:', data.message);
+        // Optionally, you can reset the form fields here
+        setName('');
+        setEmail('');
+        setMessage('');
       } else {
-        // Handle form submission failure
         console.error('Contact form submission failed:', data.message);
       }
     } catch (error) {
@@ -34,16 +34,12 @@ const Contact = () => {
     }
   };
 
-<<<<<<< HEAD
-
-=======
   return (
     <div>
-<<<<<<< HEAD
       <NavigationBar />
-      <br></br>
+      <br />
       <Container className="mt-5">
-        <Row className="justify-content-center">
+        <Row className="justify-content-center but">
           <Col md={6}>
             <h2>Contact Us</h2>
             <Form>
@@ -59,48 +55,16 @@ const Contact = () => {
                 <Form.Label>Message:</Form.Label>
                 <Form.Control as="textarea" rows={3} value={message} onChange={(e) => setMessage(e.target.value)} />
               </Form.Group>
-              <Button variant="primary" type="button" onClick={handleSubmit}>
+              <Button variant="" type="button" onClick={handleSubmit}>
                 Submit
               </Button>
             </Form>
           </Col>
         </Row>
       </Container>
-=======
->>>>>>> 34a85f1e9cd8921f846cbe1adbb99d5d1777ddee
-     return (
-    <div>
-          <div className='contact-container mb-3'></div>
-     
-      <div>
-        <NavigationBar />
-      </div>
-      <h2>Contact Us</h2>
-      <form>
-        <label>
-          Name:
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Email:
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Message:
-          <textarea value={message} onChange={(e) => setMessage(e.target.value)} />
-        </label>
-        <br />
-        <button type="button" onClick={handleSubmit}>
-          Submit
-        </button>
-      </form>
-
->>>>>>> 47eedd61fd7d1b749a488d60a61c38bc56a293b9
       <Footer />
     </div>
-     )
+  );
 };
 
 export default Contact;

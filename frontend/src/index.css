@@ -106,17 +106,28 @@ textarea {
   padding: 8px; /* Adjust padding as needed */
   margin-bottom: 10px; /* Adjust margin as needed */
 }
-button {
+.but {
   background-color: #826846;
-  color: #fff;
+  color: #ffffff;
+  padding: 10px 15px;
+  border-color: #5F8246;
+  border-top: yellowgreen;
+  border-bottom: yellowgreen;
+  border-width: 20px;
+  cursor: pointer;
+}
+.but:hover{
+  color: #FFD700;
+  border-top: #ffffff;
+}
+.foot{
+  background-color: #826846;
+}
+.login {
+  background-color: #826846;
+  color: #ffffff;
   padding: 10px 15px;
   border: 10px;
   border-radius: 5px;
   cursor: pointer;
-}
-.button:hover{
-  color: #FFD700;
-}
-.foot{
-  background-color: #826846;
 }
