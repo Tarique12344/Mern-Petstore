@@ -24,13 +24,9 @@ code {
 .Navbar{
   border-top: #826f46;
   border-bottom: #495057;
-<<<<<<< HEAD
   display: flex;
   justify-content: flex-end;
   margin-bottom: 40px;
-=======
-  /* margin: 40px; */
->>>>>>> 8af0b3f014d1348fe4d1a780253e20b981c4543c
 }
 .NavigationBar{
   background-color: #2C3E50; 

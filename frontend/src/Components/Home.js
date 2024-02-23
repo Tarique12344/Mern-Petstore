@@ -8,16 +8,10 @@ import { Container, Row, Col, Carousel } from 'react-bootstrap';
 const Home = () => {
   return (
     <div>
-<<<<<<< HEAD
   <NavigationBar />
     <div></div>
 
       <Container fluid className="my-4">
-=======
-      <NavigationBar />
-    <br></br>
-      <Container fluid className="mt-5">
->>>>>>> 8af0b3f014d1348fe4d1a780253e20b981c4543c
         <Row>
           {/* Static Photo Box */}
           <Col md={4}>
