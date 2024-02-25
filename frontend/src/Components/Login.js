@@ -44,7 +44,7 @@ const Login = () => {
   return (
     <div>
       <NavigationBar />
-
+      <br></br>
       <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-md-6">
@@ -81,6 +81,8 @@ const Login = () => {
                       {loading ? 'Logging In...' : 'Login'}
                     </button>
                   </div>
+                  <br></br>
+                  <p className='text-center'>No account? Sign up <a href='./signup'>Here!</a></p>
                   {errorMessage && <p className="text-center mt-3" style={{ color: 'red' }}>{errorMessage}</p>}
                 </form>
               </div>
