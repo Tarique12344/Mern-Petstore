@@ -5,15 +5,15 @@ const Footer = () => {
   return (
     <footer className="foot text-white fixed-bottom">
       <Container>
-        <Row>
-          <Col md={8} className="text-center">
+        <Row className='d-flex center-content justify-content-center'>
+          <Col md={6} className="center-content">
             Address: 100 Broadway St. Cincinnati, OH 45202
             <br />
             Phone: 1-800-GET-A-PET
           </Col>
         </Row>
-        <Row>
-          <Col md={8} className="text-center">
+        <Row  className='d-flex center-content justify-content-center'>
+          <Col md={4} className="center-content">
             &copy; AdeTarPat Enterprises
           </Col>
         </Row>

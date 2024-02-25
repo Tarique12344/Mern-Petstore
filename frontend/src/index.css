@@ -131,3 +131,6 @@ textarea {
   border-radius: 5px;
   cursor: pointer;
 }
+.center-content{
+  justify-content: center;
+}
