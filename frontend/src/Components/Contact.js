@@ -28,13 +28,8 @@ const Contact = () => {
 
   return (
     <div>
-<<<<<<< HEAD
       <NavigationBar />  {/* Updated import */}
       <br />
-=======
-      <NavigationBar />
-      <br></br>
->>>>>>> e9c2a770d324b1b1545bc33852a23c098de6662f
       <Container className="mt-5">
         <Row className="justify-content-center">
           <Col md={6}>
@@ -59,7 +54,6 @@ const Contact = () => {
           </Col>
         </Row>
       </Container>
-<<<<<<< HEAD
 
       {/* Add a div for the map */}
       <div id="map" style={{ height: '400px', width: '100%', marginTop: '20px' }}></div>
@@ -67,41 +61,6 @@ const Contact = () => {
       <Footer />
     </div>
   );
-=======
-     return (
-    <div>
-          <div className='contact-container mb-3'></div>
-     
-      <div>
-        <NavigationBar />
-      </div>
-      <h2>Contact Us</h2>
-      <form>
-        <label>
-          Name:
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Email:
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Message:
-          <textarea value={message} onChange={(e) => setMessage(e.target.value)} />
-        </label>
-        <br />
-        <button type="button" onClick={handleSubmit}>
-          Submit
-        </button>
-      </form>
-
-      <Footer />
-    </div>
-    </div>
-     )
->>>>>>> e9c2a770d324b1b1545bc33852a23c098de6662f
 };
 
 export default Contact;

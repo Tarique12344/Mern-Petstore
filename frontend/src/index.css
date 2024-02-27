@@ -133,3 +133,9 @@ textarea {
 .center-content{
   justify-content: center;
 }
+.hover-effect{
+transition: transform 0.2s ease-in-out;
+}
+.hover-effect{
+  transform:scale(1.8);
+}

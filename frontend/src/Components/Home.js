@@ -52,7 +52,7 @@ const Home = () => {
 
           {/* Static Photo Box */}
           <Col md={4}>
-            <div className="box photo-box">
+            <div className="box photo-box hover-effect">
               {/* Your static photos go here */}
               <img src={pic3} alt="Static Photo 1" className="img-fluid mb-3" style={{ position: 'absolute', top: '510px', left: '300px' }} />
               <img src={pic7} alt="Static Photo 2" className="img-fluid mb-3" style={{ position: 'absolute', top: '190px', right: '80px' }} />
@@ -68,6 +68,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
+      
 
       <Footer />
     </div>
