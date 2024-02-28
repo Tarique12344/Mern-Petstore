@@ -1,9 +1,7 @@
-// petRoutes.js
 const express = require('express');
 const router = express.Router();
 const Pet = require('../models/pets');
 
-// Add a new pet with an image
 router.post('/storefront', async (req, res) => {
   try {
     const { name, description, age, image } = req.body;
@@ -13,8 +11,7 @@ router.post('/storefront', async (req, res) => {
       description,
       age,
       image: {
-        data: Buffer.from(image, 'base64'), // Convert base64 string to Buffer
-        contentType: 'image/png', // Adjust accordingly based on the image type
+        url: image,
       },
     });
 

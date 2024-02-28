@@ -7,9 +7,9 @@ const About = () => {
     <div>
       <NavigationBar />
       <div className="mb-5">
-      <div className="container mt-5 pb-5">
-      <div className="container mt-5">
-        <h2 className="text-center mb-4">About Us</h2>
+        <div className="container mt-5 pb-5">
+          <div className="container mt-5">
+            <h2 className="text-center mb-4">About Us</h2>
 
         <div className="row">
           <div className="col-md-6">
@@ -23,16 +23,16 @@ const About = () => {
             </p>
           </div>
 
-          <div className="col-md-6">
-            <h3>Our Mission</h3>
-            <p>
-              Our mission is to never eat another pet, and to make sure all of our little orphans go  to homes where they are loved, just not for their meat.
-            </p>
-            <p>
-              (Whatever this place will be called) vows to never bow to the yoke of capitalism, and is run solely on donations. If your business wants to make a donation, We'll feature you in our newsletter!
-            </p>
-          </div>
-        </div>
+              <div className="col-md-6">
+                <h3>Our Mission</h3>
+                <p>
+                  Our mission is to never eat another pet, and to make sure all of our little orphans go  to homes where they are loved, just not for their meat.
+                </p>
+                <p>
+                  (Whatever this place will be called) vows to never bow to the yoke of capitalism, and is run solely on donations. If your business wants to make a donation, We'll feature you in our newsletter!
+                </p>
+              </div>
+            </div>
 
         <div className="row mt-5">
           <div className="col-md-6">
@@ -47,28 +47,32 @@ const About = () => {
            
           </div>
 
-          <div className="col-md-6">
-            {/* First picture */}
-            <img
-              src="./Our_location/OurLocationToday.jpg" // Replace with the actual path to the image
-              alt="Our Facilities Today"
-              className="img-fluid mb-3"
-            />
+                <p>
+                  Stop by and see us, and maybe even meet your new roomate!
+                </p>
 
-            {/* Second picture */}
-            <img
-              src="./Our_location/OurLocation1975.jpg" // Replace with the actual path to the image
-              alt="Our Facilities in the beginning"
-              className="img-fluid"
-            />
+              </div>
+
+              <div className="col-md-6 side">
+                {/* First picture */}
+                <img src='./Our_location/OurLocationToday.jpg' // Replace with the actual path to the image
+                  alt="Our Facilities Today"
+                  className="img-fluid mb-2 bankpic"
+                />
+
+                {/* Second picture */}
+                <img
+                  src="./Our_location/OurLocation1975.jpg" // Replace with the actual path to the image
+                  alt="Our Facilities in the beginning"
+                  className="img-fluid"
+                />
+                <Footer />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    </div>
-      <Footer />
-    </div>
-  );
+  )
 };
 
 export default About;
