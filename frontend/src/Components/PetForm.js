@@ -1,34 +1,29 @@
-// PetForm.js
 import React, { useState } from 'react';
 
 const PetForm = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [age, setAge] = useState('');
-  const [image, setImage] = useState(null);
-
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    setImage(file);
-  };
+  const [image, setImage] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('description', description);
-    formData.append('age', age);
-    formData.append('image', image);
+    const requestData = {
+      name,
+      description,
+      age,
+      image,
+    };
 
     try {
-      // PetForm.js
-      // ...
       const response = await fetch('http://localhost:5000/storefront', {
         method: 'POST',
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestData),
       });
-      // ...
 
       if (response.ok) {
         console.log('Pet added successfully');
@@ -61,8 +56,8 @@ const PetForm = () => {
         </label>
         <br />
         <label>
-          Image:
-          <input type="file" accept="image/*" onChange={handleImageChange} />
+          Image URL:
+          <input type="url" value={image} onChange={(e) => setImage(e.target.value)} />
         </label>
         <br />
         <button type="submit">Add Pet</button>
