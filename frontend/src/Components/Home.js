@@ -74,6 +74,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
+      
 
       <Footer />
     </div>

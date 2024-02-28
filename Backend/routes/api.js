@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const Pet = require('../models/pet');
 
-router.get('/pets', async (req, res) => {
+router.get('/storefront', async (req, res) => {
   try {
     const pets = await Pet.find();
     res.json(pets);
