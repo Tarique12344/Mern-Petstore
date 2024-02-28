@@ -19,7 +19,7 @@ const About = () => {
             </p>
             <blockquote>~If the world comes to an end, I want to be in Cincinnati. Everything comes there ten years later. -Samuel Clemens~</blockquote>
             <p>
-              Once they arrived, the goat has been eaten, one of the chickens got hit by a car, and the cat ran away with the spoon. After that, the Hickinbottoms swore they would help all the little critters find a home where they never had to worry about their tenuous position in the food chain, or philandering flatware.
+              Once they arrived, the goat had been eaten, one of the chickens had been hit by a car, and the cat ran away with the spoon. After that, the Hickinbottoms swore they would help all the little critters find a home where they never had to worry about their tenuous position in the food chain, or philandering flatware.
             </p>
           </div>
 
@@ -38,7 +38,7 @@ const About = () => {
           <div className="col-md-6">
             <h3>Our Facilities</h3>
             <p>
-              We maintain a state of the art facility from 1975 that boasts a cutting edge, multi-purpose, campus with plenty of conession options in downtown Cincinnati.
+              We maintain a state of the art facility from 1975 that boasts a cutting edge, multi-purpose, campus with plenty of concession options in downtown Cincinnati.
             </p>
             
             <p>

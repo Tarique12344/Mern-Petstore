@@ -62,38 +62,10 @@ const Contact = () => {
           </Col>
         </Row>
       </Container>
-     return (
-    <div>
-          <div className='contact-container mb-3'></div>
-     
-      <div>
-        <NavigationBar />
-      </div>
-      <h2>Contact Us</h2>
-      <form>
-        <label>
-          Name:
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Email:
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Message:
-          <textarea value={message} onChange={(e) => setMessage(e.target.value)} />
-        </label>
-        <br />
-        <button type="button" onClick={handleSubmit}>
-          Submit
-        </button>
-      </form>
-
+    
       <Footer />
     </div>
-    </div>
+  
      )
 };
 
