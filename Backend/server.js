@@ -1,9 +1,11 @@
+// server.js
 const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const petRoutes = require('./routes/petRoutes');
+
 
 const dotenv = require('dotenv');
 
@@ -29,7 +31,7 @@ mongoose
 
 // routes
 app.get('/', (req, res) => res.render('home'));
-app.use(authRoutes);
 app.use(petRoutes);
+app.use(authRoutes)
 
 module.exports = app;

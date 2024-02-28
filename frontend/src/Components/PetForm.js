@@ -22,10 +22,13 @@ const PetForm = () => {
     formData.append('image', image);
 
     try {
-      const response = await fetch('http://localhost:5000/pet', {
+      // PetForm.js
+      // ...
+      const response = await fetch('http://localhost:5000/storefront', {
         method: 'POST',
         body: formData,
       });
+      // ...
 
       if (response.ok) {
         console.log('Pet added successfully');

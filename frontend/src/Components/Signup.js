@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
 
-
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -39,7 +38,7 @@ const Signup = () => {
     // Clear input fields after successful signup
     setEmail('');
     setPassword('');
-  }, []);
+  }, [email, password]);
 
   return (
     <div>
@@ -51,7 +50,7 @@ const Signup = () => {
             <div className="card">
               <div className="card-body card-content">
                 <h2 className="card-title text-center mb-4 login">Signup</h2>
-                <form>
+                <form onSubmit={handleSignup}>
                   <div className="mb-3">
                     <label htmlFor="email" className="form-label">
                       Email:
@@ -77,7 +76,7 @@ const Signup = () => {
                     />
                   </div>
                   <div className="text-center button">
-                    <button type="button" onClick={handleSignup} className="btn btn-success">
+                    <button type="submit" className="btn btn-success">
                       Signup
                     </button>
                   </div>
