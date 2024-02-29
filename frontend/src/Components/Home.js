@@ -2,6 +2,7 @@ import React from 'react';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
 import { Container, Row, Col, Carousel } from 'react-bootstrap';
+import logo from './Carousel1_pics/logo.jpg';
 import pic1 from './Carousel1_pics/Playing_1.jpg';
 import pic2 from './Carousel1_pics/Playing_2.jpg';
 import pic3 from './Carousel1_pics/Playing_3.jpg';
@@ -17,10 +18,12 @@ import pic13 from './Adoption_pics/Dog_9_resized.jpg';
 import pic14 from './Adoption_pics/Dog_10_resized.jpg';
 import pic15 from './Adoption_pics/Dog_11_resized.jpg';
 
+
 const Home = () => {
   return (
     <div>
       <NavigationBar />
+      <img src={logo} alt='logo'className='logo'/>
       <div className="my-4"></div>
 
       <Container fluid className="mt-2">

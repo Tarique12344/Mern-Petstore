@@ -4,6 +4,7 @@ import NavigationBar from './Navbar';  // Updated import
 import Footer from './Footer';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import logo from './Carousel1_pics/logo.jpg';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -29,11 +30,12 @@ const Contact = () => {
   return (
     <div>
       <NavigationBar />  {/* Updated import */}
+      <img src={logo} alt='logo'className='logo'/>
       <br />
       <Container className="mt-5">
-        <Row className="justify-content-center">
+        <Row className="justify-content-center list">
           <Col md={6}>
-            <h2>Contact Us</h2>
+            <h2 className='contact'>Contact Us</h2>
             <Form>
               <Form.Group controlId="formName">
                 <Form.Label>Name:</Form.Label>
@@ -47,7 +49,7 @@ const Contact = () => {
                 <Form.Label>Message:</Form.Label>
                 <Form.Control as="textarea" rows={3} value={message} onChange={(e) => setMessage(e.target.value)} />
               </Form.Group>
-              <Button variant="primary" type="button" onClick={handleSubmit}>
+              <Button className='blue' type="button" onClick={handleSubmit}>
                 Submit
               </Button>
             </Form>

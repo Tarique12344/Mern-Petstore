@@ -3,6 +3,7 @@ import React from 'react';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
 import { Container, Carousel, Row, Col } from 'react-bootstrap';
+import logo from './Carousel1_pics/logo.jpg';
 
 
 
@@ -39,6 +40,7 @@ const Storefront = () => {
   return (
     <div>
       <NavigationBar />
+      <img src={logo} alt='logo'className='logo'/>
       <Container style={{ marginTop: '50px' }}>
         {/* Top Carousel */}
         <Carousel interval={5000}>
