@@ -40,7 +40,11 @@ const Storefront = () => {
   return (
     <div>
       <NavigationBar />
+<<<<<<< HEAD
       <img src={logo} alt='logo'className='logo'/>
+=======
+      <br></br>
+>>>>>>> 0257fc4d7946e8d50147bf07bd3dcaf894456bf8
       <Container style={{ marginTop: '50px' }}>
         {/* Top Carousel */}
         <Carousel interval={5000}>

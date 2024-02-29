@@ -13,14 +13,14 @@ const Contact = () => {
 
   useEffect(() => {
     // Create a Leaflet map when the component mounts
-    const map = L.map('map').setView([39.1031, -84.5120], 13);
+    const map = L.map('map').setView([39.0979, -84.5044], 13);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '© OpenStreetMap contributors',
     }).addTo(map);
 
     // Add a marker for the Cincinnati location
-    L.marker([39.1031, -84.5120]).addTo(map).bindPopup('Cincinnati, OH');
+    L.marker([39.0979, -84.5044]).addTo(map).bindPopup('Cincinnati, OH');
   }, []); // Empty dependency array to ensure the effect runs only once
 
   const handleSubmit = async () => {
@@ -56,13 +56,21 @@ const Contact = () => {
           </Col>
         </Row>
       </Container>
+     
+      <Container className="mt-5">
+  <Row className="justify-content-center">
+    <Col md={6}>
+      <div id="map" style={{ height: '400px' }}></div>
+    </Col>
+  </Row>
+</Container>
 
-      {/* Add a div for the map */}
-      <div id="map" style={{ height: '400px', width: '100%', marginTop: '20px' }}></div>
-
+<br></br>
+    
       <Footer />
     </div>
-  );
+  
+     )
 };
 
 export default Contact;

@@ -25,11 +25,11 @@ const Home = () => {
       <NavigationBar />
       <img src={logo} alt='logo'className='logo'/>
       <div className="my-4"></div>
-
+      <br></br>
       <Container fluid className="mt-2">
         <Row>
           {/* Scrolling Photo Box */}
-          <Col md={4}>
+          <Col md={4} className="mb-3">
             <div className="box photo-box">
               <Carousel>
                 {/* Your scrolling photos go here */}
@@ -39,7 +39,12 @@ const Home = () => {
                 <Carousel.Item>
                   <img src={pic2} alt="Scrolling Photo 2" className="img-fluid" />
                 </Carousel.Item>
-                {/* Add more scrolling photos as needed */}
+                <Carousel.Item>
+                  <img src={pic3} alt="Scrolling Photo 3" className="img-fluid" />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img src={pic4} alt="Scrolling Photo 4" className="img-fluid" />
+                </Carousel.Item>
               </Carousel>
             </div>
           </Col>
@@ -54,18 +59,19 @@ const Home = () => {
           </Col>
 
           {/* Static Photo Box */}
-          <Col md={4}>
-            <div className="box photo-box hover-effect">
+          <Col md={4} className="mb-3">
+            <div className="box photo-box text-right">
               {/* Your static photos go here */}
-              <img src={pic3} alt="Static Photo 1" className="img-fluid mb-3" style={{ position: 'absolute', top: '510px', left: '300px' }} />
-              <img src={pic7} alt="Static Photo 2" className="img-fluid mb-3" style={{ position: 'absolute', top: '190px', right: '80px' }} />
-              <img src={pic8}alt="Static Photo 1" className="img-fluid mb-3" style={{ position: 'absolute', bottom: '250px', left: '810px' }} />
-              <img src={pic10} alt="Static Photo 2" className="img-fluid mb-3" style={{ position: 'absolute', bottom: '130px', right: '740px' }} />
-              <img src={pic11} alt="Static Photo 1" className="img-fluid mb-3" style={{ position: 'absolute', top: '65%', left: '80%', transform: 'translate(-50%, -50%)' }} />
-              <img src={pic12} alt="Static Photo 2" className="img-fluid mb-3" style={{ position: 'absolute', bottom: '40%', left: '55%', transform: 'translate(-50%, 50%)' }} />
-              <img src={pic13} alt="Static Photo 1" className="img-fluid mb-3" style={{ position: 'absolute', top: '60%', right: '30%', transform: 'translate(50%, -50%)' }} />
-              <img src={pic14} alt="Static Photo 2" className="img-fluid mb-3" style={{ position: 'absolute', bottom: '50%', right: '10%', transform: 'translate(50%, 50%)' }} />
-              <img src={pic15} alt="Static Photo 1" className="img-fluid mb-3" style={{ position: 'absolute', top: '210px', left: '1500px' }} />
+              <img src={pic6} alt="Static Photo 1" className="img-fluid mb-3" />
+              <img src={pic7} alt="Static Photo 2" className="img-fluid mb-3" />
+              <img src={pic8} alt="Static Photo 3" className="img-fluid mb-3" />
+              <img src={pic9} alt="Static Photo 4" className="img-fluid mb-3" />
+              <img src={pic10} alt="Static Photo 5" className="img-fluid mb-3" />
+              <img src={pic11} alt="Static Photo 6" className="img-fluid mb-3" />
+              <img src={pic12} alt="Static Photo 7" className="img-fluid mb-3" />
+              <img src={pic13} alt="Static Photo 8" className="img-fluid mb-3" />
+              <img src={pic14} alt="Static Photo 9" className="img-fluid mb-3" />
+              <img src={pic15} alt="Static Photo 10" className="img-fluid mb-3" />
               {/* Add more static photos as needed */}
             </div>
           </Col>
@@ -79,3 +85,7 @@ const Home = () => {
 };
 
 export default Home;
+
+
+
+
