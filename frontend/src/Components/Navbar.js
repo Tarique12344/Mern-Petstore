@@ -25,10 +25,12 @@ const NavigationBar = () => {
             <Nav.Link href="/storefront">Storefront</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/contact">Contact Us</Nav.Link>
+            <Nav.Link href="/petform">Pet Form</Nav.Link>
             {isAuthenticated ? (
               <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
             ) : (
               <Nav.Link href="/login">Login</Nav.Link>
+
             )}
           </Nav>
         </Navbar.Collapse>
