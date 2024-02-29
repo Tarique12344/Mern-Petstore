@@ -61,11 +61,13 @@ const About = () => {
       <div className="row mt-5">
         <div className="col-md-6">
           {/* Second picture */}
+          <div className="p-5">
           <img
-            src="./Our_location/OurLocation1975.jpg" // Replace with the actual path to the image
+            src="./Our_location/OurLocation1975.jpg" 
             alt="Our Facilities in the beginning"
             className="img-fluid"
           />
+          </div>
         </div>
       </div>
       <Footer />
@@ -74,4 +76,3 @@ const About = () => {
 };
 
 export default About;
-

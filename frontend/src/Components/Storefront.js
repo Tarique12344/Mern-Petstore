@@ -39,6 +39,7 @@ const Storefront = () => {
   return (
     <div>
       <NavigationBar />
+      <br></br>
       <Container style={{ marginTop: '50px' }}>
         {/* Top Carousel */}
         <Carousel interval={5000}>

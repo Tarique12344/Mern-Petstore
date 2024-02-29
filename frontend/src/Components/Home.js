@@ -22,7 +22,7 @@ const Home = () => {
     <div>
       <NavigationBar />
       <div className="my-4"></div>
-
+      <br></br>
       <Container fluid className="mt-2">
         <Row>
           {/* Scrolling Photo Box */}
