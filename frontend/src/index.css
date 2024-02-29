@@ -125,7 +125,7 @@ textarea {
 }
 .login {
   background-color: #826846;
-  color: #ffffff;
+  color: yellowgreen;
   padding: 10px 15px;
   border: 10px;
   border-radius: 5px;
@@ -169,4 +169,7 @@ color:#FFD700
 }
 .color{
   background-color: yellowgreen;
+}
+.sign{
+  background-color: yellowgreen
 }
