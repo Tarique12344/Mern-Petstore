@@ -161,4 +161,12 @@ color:#FFD700;
 .blue{
 background-color: yellowgreen;
 }
-
+.start{
+  color: yellowgreen;
+}
+.pet:hover{
+color:#FFD700
+}
+.color{
+  background-color: yellowgreen;
+}

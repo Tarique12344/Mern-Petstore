@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
+import logo from './Carousel1_pics/logo.jpg';
 
 const PetForm = () => {
   const [name, setName] = useState('');
@@ -52,16 +53,17 @@ const PetForm = () => {
   return (
     <div>
       <NavigationBar />
+      <img src={logo} alt='logo'className='logo'/>
       <br></br>
       <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-md-6">
             <div className="card login">
               <div className="card-body card-content">
-                <h2 className="card-title text-center mb-4 login">Add a Pet</h2>
+                <h2 className="card-title text-center mb-4 start">Add a Pet</h2>
                 <form onSubmit={handleSubmit}>
                   <div className="mb-3">
-                    <label htmlFor="petName" className="form-label">
+                    <label htmlFor="petName" className="form-label pet">
                       Pet Name:
                     </label>
                     <input
@@ -72,8 +74,8 @@ const PetForm = () => {
                       onChange={(e) => setName(e.target.value)}
                     />
                   </div>
-                  <div className="mb-3">
-                    <label htmlFor="petDescription" className="form-label">
+                  <div className="mb-3 pet">
+                    <label htmlFor="petDescription" className="form-label pet">
                       Pet Description:
                     </label>
                     <textarea
@@ -84,7 +86,7 @@ const PetForm = () => {
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="petAge" className="form-label">
+                    <label htmlFor="petAge" className="form-label pet">
                       Pet Age:
                     </label>
                     <input
@@ -96,7 +98,7 @@ const PetForm = () => {
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="petImage" className="form-label">
+                    <label htmlFor="petImage" className="form-label pet">
                       Pet Image URL:
                     </label>
                     <input
@@ -108,7 +110,7 @@ const PetForm = () => {
                     />
                   </div>
                   <div className="text-center button">
-                    <button type="submit" disabled={loading} className="btn btn-success">
+                    <button type="submit" disabled={loading} className="color">
                       {loading ? 'Adding Pet...' : 'Add Pet'}
                     </button>
                   </div>
