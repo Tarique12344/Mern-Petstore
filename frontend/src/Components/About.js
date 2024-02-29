@@ -1,11 +1,13 @@
 import React from 'react';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
+import logo from './Carousel1_pics/logo.jpg';
 
 const About = () => {
   return (
     <div>
       <NavigationBar />
+      <img src={logo} alt='logo'className='logo'/>
       <div className="mb-5">
         <div className="container mt-5 pb-5">
           <div className="container mt-5">
