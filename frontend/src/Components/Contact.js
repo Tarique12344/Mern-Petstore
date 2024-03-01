@@ -57,7 +57,7 @@ const Contact = () => {
         </Row>
       </Container>
      
-      <Container className="mt-5">
+      <Container className="mt-5 map ">
   <Row className="justify-content-center">
     <Col md={6}>
       <div id="map" style={{ height: '400px' }}></div>
