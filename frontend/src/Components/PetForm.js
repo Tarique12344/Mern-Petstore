@@ -36,6 +36,11 @@ const PetForm = () => {
 
       if (response.ok) {
         console.log('Pet added successfully');
+        // Clear input fields after successful submission
+        setName('');
+        setDescription('');
+        setAge('');
+        setImage('');
         // Handle success, e.g., redirect to another page
       } else {
         console.error('Error adding pet:', response.statusText);

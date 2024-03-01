@@ -3,6 +3,7 @@ import NavigationBar from './Navbar';
 import Footer from './Footer';
 import { Container, Carousel, Row, Col } from 'react-bootstrap';
 import logo from './Carousel1_pics/logo.jpg';
+import _ from 'lodash';
 
 const Storefront = () => {
   const [pets, setPets] = useState([]);
@@ -24,21 +25,17 @@ const Storefront = () => {
   return (
     <div>
       <NavigationBar />
-<<<<<<< HEAD
-      <img src={logo} alt='logo'className='logo'/>
-=======
-      <br></br>
->>>>>>> 0257fc4d7946e8d50147bf07bd3dcaf894456bf8
+      <img src={logo} alt='logo' className='logo' />
       <Container style={{ marginTop: '50px' }}>
         {/* Top Carousel */}
         <Carousel interval={5000}>
-          {pets.slice(0, 5).map((pet) => (
+          {_.shuffle(pets.slice()).map((pet) => (
             <Carousel.Item key={pet._id}>
               <img
                 className="d-block w-100"
                 src={pet.image}  // Assuming 'image' is the field containing the image URL
                 alt={`Slide ${pet._id}`}
-                height="400"
+                height="300"  // Adjust the height accordingly
               />
             </Carousel.Item>
           ))}
@@ -50,12 +47,13 @@ const Storefront = () => {
             {pets.slice(5, 10).map((pet) => (
               <Col key={pet._id} md={2} className="mb-2">
                 <img
-                  src={pet.image}  // Assuming 'image' is the field containing the image URL
+                  src={pet.image}
                   alt={`Pet ${pet._id}`}
                   className="img-fluid"
-                  height="80"
+                  height="80"  // Adjust the height accordingly
                 />
                 <p className="mt-2">{pet.name}</p>
+                <p className="mt-2">{pet.age}</p>
               </Col>
             ))}
           </Row>
@@ -63,12 +61,13 @@ const Storefront = () => {
             {pets.slice(10, 15).map((pet) => (
               <Col key={pet._id} md={2} className="mb-2">
                 <img
-                  src={pet.image}  // Assuming 'image' is the field containing the image URL
+                  src={pet.image}
                   alt={`Pet ${pet._id}`}
                   className="img-fluid"
-                  height="80"
+                  height="80"  // Adjust the height accordingly
                 />
-                <p className="mt-2">{pet.name}</p>
+                <p className="mt-1">{pet.name}</p>
+                <p className="mt-1">{pet.age}</p>
               </Col>
             ))}
           </Row>
