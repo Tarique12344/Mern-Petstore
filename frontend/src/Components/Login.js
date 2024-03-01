@@ -79,7 +79,7 @@ const Login = () => {
                     />
                   </div>
                   <div className="text-center button">
-                    <button type="button" onClick={handleLogin} disabled={loading} className="btn btn-success">
+                    <button type="button" onClick={handleLogin} disabled={loading} className="sign">
                       {loading ? 'Logging In...' : 'Login'}
                     </button>
                   </div>
