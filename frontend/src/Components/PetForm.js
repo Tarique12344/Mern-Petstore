@@ -1,14 +1,16 @@
+// PetForm.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
-import logo from './Carousel1_pics/logo.jpg';
 
 const PetForm = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [age, setAge] = useState('');
-  const [image, setImage] = useState('');
+  const [imageURL, setImageURL] = useState('');
+  const [breed, setBreed] = useState('');
+  const [category, setCategory] = useState('all'); // Default category is 'all'
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
@@ -20,7 +22,9 @@ const PetForm = () => {
       name,
       description,
       age,
-      image,
+      breed,
+      image: imageURL,
+      category, // Include category when submitting
     };
 
     try {
@@ -37,11 +41,6 @@ const PetForm = () => {
 
       if (response.ok) {
         console.log('Pet added successfully');
-        // Clear input fields after successful submission
-        setName('');
-        setDescription('');
-        setAge('');
-        setImage('');
         // Handle success, e.g., redirect to another page
       } else {
         console.error('Error adding pet:', response.statusText);
@@ -58,17 +57,16 @@ const PetForm = () => {
   return (
     <div>
       <NavigationBar />
-      <img src={logo} alt='logo'className='logo'/>
-      <br></br>
+      <br />
       <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-md-6">
             <div className="card login">
               <div className="card-body card-content">
-                <h2 className="card-title text-center mb-4 start">Add a Pet</h2>
+                <h2 className="card-title text-center mb-4 login">Add a Pet</h2>
                 <form onSubmit={handleSubmit}>
                   <div className="mb-3">
-                    <label htmlFor="petName" className="form-label pet">
+                    <label htmlFor="petName" className="form-label">
                       Pet Name:
                     </label>
                     <input
@@ -79,8 +77,8 @@ const PetForm = () => {
                       onChange={(e) => setName(e.target.value)}
                     />
                   </div>
-                  <div className="mb-3 pet">
-                    <label htmlFor="petDescription" className="form-label pet">
+                  <div className="mb-3">
+                    <label htmlFor="petDescription" className="form-label">
                       Pet Description:
                     </label>
                     <textarea
@@ -91,7 +89,7 @@ const PetForm = () => {
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="petAge" className="form-label pet">
+                    <label htmlFor="petAge" className="form-label">
                       Pet Age:
                     </label>
                     <input
@@ -103,19 +101,47 @@ const PetForm = () => {
                     />
                   </div>
                   <div className="mb-3">
-                    <label htmlFor="petImage" className="form-label pet">
+                    <label htmlFor="petBreed" className="form-label">
+                      Pet Breed:
+                    </label>
+                    <input
+                      id="petBreed"
+                      type="text"
+                      className="form-control"
+                      value={breed}
+                      onChange={(e) => setBreed(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="petCategory" className="form-label">
+                      Pet Category:
+                    </label>
+                    <select
+                      id="petCategory"
+                      className="form-control"
+                      value={category}
+                      onChange={(e) => setCategory(e.target.value)}
+                    >
+                      <option value="all">All</option>
+                      <option value="dog">Dog</option>
+                      <option value="cat">Cat</option>
+                      {/* Add more categories if needed */}
+                    </select>
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="petImage" className="form-label">
                       Pet Image URL:
                     </label>
                     <input
                       id="petImage"
                       type="url"
                       className="form-control"
-                      value={image}
-                      onChange={(e) => setImage(e.target.value)}
+                      value={imageURL}
+                      onChange={(e) => setImageURL(e.target.value)}
                     />
                   </div>
-                  <div className="text-center button">
-                    <button type="submit" disabled={loading} className="color">
+                  <div className="text-center button" style={{ marginBottom: '20px' }}>
+                    <button type="submit" disabled={loading} className="btn btn-success">
                       {loading ? 'Adding Pet...' : 'Add Pet'}
                     </button>
                   </div>

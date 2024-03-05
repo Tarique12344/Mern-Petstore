@@ -22,7 +22,7 @@ import pic15 from './Adoption_pics/Dog_11_resized.jpg';
 const Home = () => {
   return (
     <div>
-      <NavigationBar />
+     
       <img src={logo} alt='logo'className='logo'/>
       <div className="my-4"></div>
       <br></br>
@@ -80,7 +80,7 @@ const Home = () => {
       </Container>
       
 
-      <Footer />
+   
     </div>
   );
 };

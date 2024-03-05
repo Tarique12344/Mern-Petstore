@@ -29,7 +29,7 @@ const Contact = () => {
 
   return (
     <div>
-      <NavigationBar />  {/* Updated import */}
+      
       <img src={logo} alt='logo'className='logo'/>
       <br />
       <Container className="mt-5">
@@ -67,7 +67,7 @@ const Contact = () => {
 
 <br></br>
     
-      <Footer />
+   
     </div>
   
      )

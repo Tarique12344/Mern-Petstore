@@ -1,4 +1,4 @@
-// models/pets.js
+// pets.js
 const mongoose = require('mongoose');
 
 const petSchema = new mongoose.Schema({
@@ -14,11 +14,13 @@ const petSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  breed: {
+    type: String,
+    required: true,
+  },
   image: {
-    url: {
-      type: String,
-      required: true,
-    },
+    type: String,
+    required: true,
   },
 });
 

@@ -1,19 +1,27 @@
+// Import statements
 import React, { useState, useEffect } from 'react';
+import { Container, Carousel, Row, Col } from 'react-bootstrap';
+import _ from 'lodash';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
-import { Container, Carousel, Row, Col } from 'react-bootstrap';
 import logo from './Carousel1_pics/logo.jpg';
-import _ from 'lodash';
 
 const Storefront = () => {
   const [pets, setPets] = useState([]);
+  const [filteredPets, setFilteredPets] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     const fetchPets = async () => {
       try {
         const response = await fetch('http://localhost:5000/storefront');
         const data = await response.json();
-        setPets(data);
+
+        // Filter out pets without images
+        const petsWithImages = data.filter((pet) => pet.image !== null && pet.image !== undefined);
+
+        setPets(petsWithImages);
+        setFilteredPets(petsWithImages);
       } catch (error) {
         console.error('Error fetching pets:', error.message);
       }
@@ -26,54 +34,40 @@ const Storefront = () => {
     <div>
       <NavigationBar />
       <img src={logo} alt='logo' className='logo' />
-      <Container style={{ marginTop: '50px' }}>
+      <Container style={{ marginTop: '50px', paddingBottom: '80px' }}>
         {/* Top Carousel */}
-        <Carousel interval={5000}>
+        <Carousel interval={5000} style={{ maxHeight: '400px', overflow: 'hidden' }}>
           {_.shuffle(pets.slice()).map((pet) => (
             <Carousel.Item key={pet._id}>
               <img
-                className="d-block w-100"
-                src={pet.image}  // Assuming 'image' is the field containing the image URL
+                className="d-block w-100 h-auto"
+                src={pet.image}
                 alt={`Slide ${pet._id}`}
-                height="300"  // Adjust the height accordingly
+                style={{ objectFit: 'contain', maxHeight: '400px' }}
               />
             </Carousel.Item>
           ))}
         </Carousel>
 
         {/* Bottom Carousel with two rows */}
-        <Carousel className="mt-3" indicators={false} interval={null}>
-          <Row>
-            {pets.slice(5, 10).map((pet) => (
-              <Col key={pet._id} md={2} className="mb-2">
+        <Carousel className="my-5" indicators={false} interval={null} style={{ maxHeight: '150px' }}>
+          <Row className="justify-content-center">
+            {filteredPets.map((pet) => (
+              <Col key={pet._id} md={2} className="my-5">
                 <img
                   src={pet.image}
                   alt={`Pet ${pet._id}`}
-                  className="img-fluid"
-                  height="80"  // Adjust the height accordingly
+                  className="img-fluid h-auto"
+                  style={{ objectFit: 'contain', maxHeight: '120px' }}
                 />
                 <p className="mt-2">{pet.name}</p>
+                <p className="mt-1">{pet.description}</p>
                 <p className="mt-2">{pet.age}</p>
-              </Col>
-            ))}
-          </Row>
-          <Row>
-            {pets.slice(10, 15).map((pet) => (
-              <Col key={pet._id} md={2} className="mb-2">
-                <img
-                  src={pet.image}
-                  alt={`Pet ${pet._id}`}
-                  className="img-fluid"
-                  height="80"  // Adjust the height accordingly
-                />
-                <p className="mt-1">{pet.name}</p>
-                <p className="mt-1">{pet.age}</p>
               </Col>
             ))}
           </Row>
         </Carousel>
       </Container>
-
       <Footer />
     </div>
   );
