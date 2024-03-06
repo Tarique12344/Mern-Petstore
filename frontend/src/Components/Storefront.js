@@ -1,6 +1,9 @@
+//DO NOT TOUCH ANY OR CHANGE ANY 
+
+
 // Import statements
 import React, { useState, useEffect } from 'react';
-import { Container, Carousel, Row, Col } from 'react-bootstrap';
+import { Container, Carousel, Row, Col, Card } from 'react-bootstrap';
 import _ from 'lodash';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
@@ -30,6 +33,9 @@ const Storefront = () => {
     fetchPets();
   }, []);
 
+  // Shuffle and slice the pets for the Top Carousel
+  const shuffledAndSlicedTopPets = _.shuffle(pets).slice(0, 5);
+
   return (
     <div>
       <NavigationBar />
@@ -37,7 +43,7 @@ const Storefront = () => {
       <Container style={{ marginTop: '50px', paddingBottom: '80px' }}>
         {/* Top Carousel */}
         <Carousel interval={5000} style={{ maxHeight: '400px', overflow: 'hidden' }}>
-          {_.shuffle(pets.slice()).map((pet) => (
+          {shuffledAndSlicedTopPets.map((pet) => (
             <Carousel.Item key={pet._id}>
               <img
                 className="d-block w-100 h-auto"
@@ -49,26 +55,38 @@ const Storefront = () => {
           ))}
         </Carousel>
 
-        {/* Bottom Carousel with two rows */}
+        {/* Bottom Carousel with rows */}
         <Carousel className="my-5" indicators={false} interval={null} style={{ maxHeight: '150px' }}>
-          <Row className="justify-content-center">
-            {filteredPets.map((pet) => (
-              <Col key={pet._id} md={2} className="my-5">
-                <img
-                  src={pet.image}
-                  alt={`Pet ${pet._id}`}
-                  className="img-fluid h-auto"
-                  style={{ objectFit: 'contain', maxHeight: '120px' }}
-                />
-                <p className="mt-2">{pet.name}</p>
-                <p className="mt-1">{pet.description}</p>
-                <p className="mt-2">{pet.age}</p>
-              </Col>
-            ))}
-          </Row>
-        </Carousel>
+          {_.chunk(filteredPets, 5).map((rowPets, rowIndex) => (
+            <Row key={rowIndex} className="justify-content-center">
+              {rowPets.map((pet) => (
+                <Col key={pet._id} md={2} className="my-2">
+                  <Card style={{ height: '100%' }}>
+                    <Card.Img
+                      variant="top"
+                      src={pet.image}
+                      alt={`Pet ${pet._id}`}
+                      style={{ objectFit: 'cover', height: '120px' }}
+                    />
+                    <Card.Body>
+                      <Card.Title>{pet.name}</Card.Title>
+                      <Card.Text>{pet.description}</Card.Text>
+                      <Card.Text>{pet.age}</Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
+          ))}
+        </Carousel>      
+      
       </Container>
-      <Footer />
+     <br />
+     <br />
+     <br />
+     <br />
+     <br />
+     <br />
     </div>
   );
 };

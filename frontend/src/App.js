@@ -25,6 +25,10 @@ const App = () => {
         <Route path="/petform" element={<PetForm />} />
         <Route path='/storefront2' element={<Storefront2 />} />
       </Routes>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <Footer />
     </div>
   );
