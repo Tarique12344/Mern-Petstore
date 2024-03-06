@@ -189,12 +189,13 @@ font-style: oblique;
 .map{
 margin-bottom: 100px;
 }
-.pic{
+.ten{
   width: 200px;
   height: 200px;
 }
 .eight{
   height: 200px;
+
 }
 .six{
   height: 200px;
@@ -212,27 +213,30 @@ margin-bottom: 100px;
 }
 .one{
   width: 250px;
+  margin: 30px;
 }
 .two{
-  width: 200px;
+  width: 225px;
+  height: 200px;
+  margin-right:60px;
 }
 .thee{
   width: 200px;
+  margin-right: 10px;
 }
 .fur{
   height:200px;
+  margin-right: 50px;
 }
 .five{
   height: 200px;
+  margin-right:50px;
 }
 .nine{
   width: 200px;
   height: 200px;
+ 
 }
-
-footer{
- bottom: 0;
-
- left:0;
- position: relative;
+.pic4{
+  height: 300px;
 }

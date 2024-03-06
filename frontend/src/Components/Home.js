@@ -6,7 +6,7 @@ import logo from './Carousel1_pics/logo.jpg';
 import pic1 from './Carousel1_pics/Playing_1.jpg';
 import pic2 from './Carousel1_pics/Playing_2.jpg';
 import pic3 from './Carousel1_pics/Playing_3.jpg';
-import pic4 from './Carousel1_pics/Playing_4.jpg';
+import pic4 from './Carousel1_pics/playing_park.jpg';
 import pic6 from './Adoption_pics/Dog_3_resized.jpg';
 import pic7 from './Adoption_pics/Dog_2_resized.jpg';
 import pic8 from './Adoption_pics/Dog_4_resized.jpg';
@@ -22,8 +22,8 @@ import pic15 from './Adoption_pics/Dog_11_resized.jpg';
 const Home = () => {
   return (
     <div>
-     
-      <img src={logo} alt='logo'className='logo'/>
+
+      <img src={logo} alt='logo' className='logo' />
       <div className="my-4"></div>
       <br></br>
       <Container fluid className="mt-2">
@@ -69,20 +69,23 @@ const Home = () => {
               <img src={pic9} alt="Static Photo 4" className="img-fluid mb-3 fur" />
               <img src={pic10} alt="Static Photo 5" className="img-fluid mb-3 five" />
               <img src={pic11} alt="Static Photo 6" className="img-fluid mb-3 six" />
-              <img src={pic12} alt="Static Photo 7" className="img-fluid mb-3 seven" />
-              <img src={pic13} alt="Static Photo 8" className="img-fluid mb-3 eight" />
-              <img src={pic14} alt="Static Photo 9" className="img-fluid mb-3 nine" />
-              <img src={pic15} alt="Static Photo 10" className="img-fluid mb-3 pic" />
-              {/* Add more static photos as needed */}
             </div>
           </Col>
         </Row>
       </Container>
-      
-
-   
     </div>
   );
+  <Row>
+  <Col md={4} className="mb-3">
+    <div className="box photo-box text-left">
+      <img src={pic12} alt="Static Photo 7" className="img-fluid mb-3 seven" />
+      <img src={pic13} alt="Static Photo 8" className="img-fluid mb-3 eight" />
+      <img src={pic14} alt="Static Photo 9" className="img-fluid mb-3 nine" />
+      <img src={pic15} alt="Static Photo 10" className="img-fluid mb-3 ten" />
+      {/* Add more static photos as needed */}
+    </div>
+  </Col>
+</Row>
 };
 
 export default Home;
