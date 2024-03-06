@@ -7,11 +7,15 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import StoreFront from './components/Storefront';
 import PetForm from './components/PetForm';
+import Storefront2 from './components/Storefront2';
+import Footer from './components/Footer'
+import NavigationBar from './components/Navbar'
 import Cart from './components/Cart';
 
 const App = () => {
   return (
     <div>
+     <NavigationBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -22,6 +26,11 @@ const App = () => {
         <Route path="/petform" element={<PetForm />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <Footer />
     </div>
   );
 };

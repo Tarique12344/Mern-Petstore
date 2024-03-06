@@ -42,7 +42,7 @@ const Signup = () => {
 
   return (
     <div>
-      <NavigationBar />
+      
       <br />
       <div className="container mt-5">
         <div className="row justify-content-center">
@@ -86,7 +86,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      
     </div>
   );
 };

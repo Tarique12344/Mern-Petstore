@@ -7,7 +7,9 @@ const PetForm = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [age, setAge] = useState('');
-  const [image, setImage] = useState('');
+  const [imageURL, setImageURL] = useState('');
+  const [breed, setBreed] = useState('');
+  const [category, setCategory] = useState('all'); // Default category is 'all'
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
@@ -19,7 +21,9 @@ const PetForm = () => {
       name,
       description,
       age,
-      image,
+      breed,
+      image: imageURL,
+      category, // Include category when submitting
     };
 
     try {
@@ -52,7 +56,7 @@ const PetForm = () => {
   return (
     <div>
       <NavigationBar />
-      <br></br>
+      <br />
       <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-md-6">
@@ -96,6 +100,34 @@ const PetForm = () => {
                     />
                   </div>
                   <div className="mb-3">
+                    <label htmlFor="petBreed" className="form-label">
+                      Pet Breed:
+                    </label>
+                    <input
+                      id="petBreed"
+                      type="text"
+                      className="form-control"
+                      value={breed}
+                      onChange={(e) => setBreed(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label htmlFor="petCategory" className="form-label">
+                      Pet Category:
+                    </label>
+                    <select
+                      id="petCategory"
+                      className="form-control"
+                      value={category}
+                      onChange={(e) => setCategory(e.target.value)}
+                    >
+                      <option value="all">All</option>
+                      <option value="dog">Dog</option>
+                      <option value="cat">Cat</option>
+                      {/* Add more categories if needed */}
+                    </select>
+                  </div>
+                  <div className="mb-3">
                     <label htmlFor="petImage" className="form-label">
                       Pet Image URL:
                     </label>
@@ -103,11 +135,11 @@ const PetForm = () => {
                       id="petImage"
                       type="url"
                       className="form-control"
-                      value={image}
-                      onChange={(e) => setImage(e.target.value)}
+                      value={imageURL}
+                      onChange={(e) => setImageURL(e.target.value)}
                     />
                   </div>
-                  <div className="text-center button">
+                  <div className="text-center button" style={{ marginBottom: '20px' }}>
                     <button type="submit" disabled={loading} className="btn btn-success">
                       {loading ? 'Adding Pet...' : 'Add Pet'}
                     </button>
@@ -126,3 +158,4 @@ const PetForm = () => {
 };
 
 export default PetForm;
+

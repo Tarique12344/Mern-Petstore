@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
+import logo from './Carousel1_pics/logo.jpg';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -44,6 +45,7 @@ const Login = () => {
   return (
     <div>
       <NavigationBar />
+      <img src={logo} alt='logo'className='logo'/>
       <br></br>
       <div className="container mt-5">
         <div className="row justify-content-center">
@@ -77,7 +79,7 @@ const Login = () => {
                     />
                   </div>
                   <div className="text-center button">
-                    <button type="button" onClick={handleLogin} disabled={loading} className="btn btn-success">
+                    <button type="button" onClick={handleLogin} disabled={loading} className="sign">
                       {loading ? 'Logging In...' : 'Login'}
                     </button>
                   </div>

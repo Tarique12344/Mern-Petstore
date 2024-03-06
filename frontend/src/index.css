@@ -1,14 +1,16 @@
 body {
   background-color:   #5F8246;
-  margin: 0;
+  /* margin: 100vh; */
   color: burlywood;
   h1, h2, h3{
     color: blanchedalmond;
     font-family: Montserrat;
+    font-size: larger;
   }
   .box.text-box{
     margin-bottom: 20px;
     margin-top: 30px;
+    font-size: x-large;
   }
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -21,12 +23,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.main-text{
+  font-size: larger;
+}
 .Navbar{
   border-top: #826f46;
   border-bottom: #495057;
   display: flex;
-  justify-content: flex-end;
+
   margin-bottom: 40px;
+}
+.text{
+  font-size: larger;
 }
 .NavigationBar{
   background-color: #2C3E50; 
@@ -36,13 +44,14 @@ code {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 1.9); 
   background: linear-gradient(to right, #3498db, #2c3e50); 
   display: flex;
-  justify-content: center;
+  justify-content: center !important;
 }
 .Navbar-container {
   border: 2px solid #826f46; 
   background-color: #6d8246; 
   border-radius: 10px;
   overflow: hidden;
+  justify-content: right;
 }  
 
 .nav-link {
@@ -124,7 +133,7 @@ textarea {
 }
 .login {
   background-color: #826846;
-  color: #ffffff;
+  color: yellowgreen;
   padding: 10px 15px;
   border: 10px;
   border-radius: 5px;
@@ -143,6 +152,87 @@ transition: transform 0.2s ease-in-out;
   margin-top: 10px;
 }
 .bankpic{
-  margin-top: -300px;
+  margin-top: -200px;
   
+}
+.logo{
+  opacity: 0.8;
+  width: 150px;
+ height: auto;
+}
+.contact{
+  text-align: center;
+}
+.list:hover{
+color:#FFD700;
+}
+.blue{
+background-color: yellowgreen;
+}
+.start{
+  color: yellowgreen;
+}
+.pet:hover{
+color:#FFD700
+}
+.color{
+  background-color: yellowgreen;
+}
+.sign{
+  background-color: yellowgreen
+}
+.tilt{
+  font-size: xx-large;
+font-weight: 300;
+font-style: oblique;
+}
+.map{
+margin-bottom: 100px;
+}
+.pic{
+  width: 200px;
+  height: 200px;
+}
+.eight{
+  height: 200px;
+}
+.six{
+  height: 200px;
+  width: 250px;
+}
+.seven{
+  height: 200px;
+  width: 200px;
+}
+.three{
+  width: 600px;
+}
+.four{
+  width: 500px;
+}
+.one{
+  width: 250px;
+}
+.two{
+  width: 200px;
+}
+.thee{
+  width: 200px;
+}
+.fur{
+  height:200px;
+}
+.five{
+  height: 200px;
+}
+.nine{
+  width: 200px;
+  height: 200px;
+}
+
+footer{
+ bottom: 0;
+
+ left:0;
+ position: relative;
 }

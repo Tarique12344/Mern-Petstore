@@ -1,13 +1,29 @@
+// pets.js
 const mongoose = require('mongoose');
 
 const petSchema = new mongoose.Schema({
-  name: String,
-  description: String,
-  age: Number,
+  name: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  age: {
+    type: Number,
+    required: true,
+  },
+  breed: {
+    type: String,
+    required: true,
+  },
   image: {
-    data: Buffer,
-    contentType: String
-  }
+    type: String,
+    required: true,
+  },
 });
 
-module.exports = mongoose.model('Pet', petSchema);
+const Pet = mongoose.model('Pet', petSchema);
+
+module.exports = Pet;
