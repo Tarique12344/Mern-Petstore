@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import cart2 from './Cart2.png'
 
 const NavigationBar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -32,8 +33,8 @@ const NavigationBar = () => {
               <>
               <Nav.Link href="/login">Login</Nav.Link>
                 <Link to="/cart" className="nav-link">
-                  <img src="./cart.jpg" style={{ width: '24px', height: '24px', marginRight: '5px' }} />
-                  Cart
+                  <img src={cart2} style={{ width: '30px', height: '24px', marginRight: '5px' }} />
+                  
                 </Link>
               </>
             )}
