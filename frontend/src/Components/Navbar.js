@@ -16,11 +16,11 @@ const NavigationBar = () => {
   };
 
   return (
-    <Navbar className="Navbar " bg="" variant="dark" expand="lg" fixed="top">
+    <Navbar className="Navbar" variant="dark" expand="lg" fixed="top">
       <Container>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto hover ">
+          <Nav className="ml-auto hover">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/storefront">Storefront</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
@@ -29,8 +29,13 @@ const NavigationBar = () => {
             {isAuthenticated ? (
               <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
             ) : (
+              <>
               <Nav.Link href="/login">Login</Nav.Link>
-
+                <Link to="/cart" className="nav-link">
+                  <img src="./cart.jpg" style={{ width: '24px', height: '24px', marginRight: '5px' }} />
+                  Cart
+                </Link>
+              </>
             )}
           </Nav>
         </Navbar.Collapse>

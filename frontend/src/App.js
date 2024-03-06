@@ -7,6 +7,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import StoreFront from './components/Storefront';
 import PetForm from './components/PetForm';
+import Cart from './components/Cart';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/storefront" element={<StoreFront />} />
         <Route path="/petform" element={<PetForm />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </div>
   );
