@@ -1,6 +1,3 @@
-//DO NOT TOUCH ANY OR CHANGE ANY 
-
-
 // Import statements
 import React, { useState, useEffect } from 'react';
 import { Container, Carousel, Row, Col, Card } from 'react-bootstrap';
@@ -40,7 +37,7 @@ const Storefront = () => {
     <div>
       <NavigationBar />
       <img src={logo} alt='logo' className='logo' />
-      <Container style={{ marginTop: '50px', paddingBottom: '80px' }}>
+      <Container style={{ marginTop: '50px', paddingBottom: '80px', marginBottom: '20px' }}>
         {/* Top Carousel */}
         <Carousel interval={5000} style={{ maxHeight: '400px', overflow: 'hidden' }}>
           {shuffledAndSlicedTopPets.map((pet) => (
@@ -55,38 +52,30 @@ const Storefront = () => {
           ))}
         </Carousel>
 
-        {/* Bottom Carousel with rows */}
-        <Carousel className="my-5" indicators={false} interval={null} style={{ maxHeight: '150px' }}>
-          {_.chunk(filteredPets, 5).map((rowPets, rowIndex) => (
-            <Row key={rowIndex} className="justify-content-center">
-              {rowPets.map((pet) => (
-                <Col key={pet._id} md={2} className="my-2">
-                  <Card style={{ height: '100%' }}>
-                    <Card.Img
-                      variant="top"
-                      src={pet.image}
-                      alt={`Pet ${pet._id}`}
-                      style={{ objectFit: 'cover', height: '120px' }}
-                    />
-                    <Card.Body>
-                      <Card.Title>{pet.name}</Card.Title>
-                      <Card.Text>{pet.description}</Card.Text>
-                      <Card.Text>{pet.age}</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
+        {/* Bottom Carousel with rows of three */}
+        <Row className="my-5 justify-content-center">
+          {filteredPets.map((pet) => (
+            <Col key={pet._id} md={4} className="my-2">
+              <Card style={{ maxWidth: '14rem', margin: 'auto' }}>
+                <Card.Img
+                  variant="top"
+                  src={pet.image}
+                  alt={`Pet ${pet._id}`}
+                  className="img-fluid"
+                  style={{ objectFit: 'cover', height: '180px' }}
+                />
+                <Card.Body>
+                  <Card.Title>{pet.name}</Card.Title>
+                  <Card.Text>{pet.description}</Card.Text>
+                  <Card.Text>{pet.breed}</Card.Text>
+                  <Card.Text>{pet.age}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
           ))}
-        </Carousel>      
-      
+        </Row>      
       </Container>
-     <br />
-     <br />
-     <br />
-     <br />
-     <br />
-     <br />
+      <Footer />
     </div>
   );
 };

@@ -1,3 +1,4 @@
+// PetForm.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
@@ -56,7 +57,7 @@ const PetForm = () => {
   return (
     <div>
       <NavigationBar />
-      <br />
+      <div style={{ marginTop: '50px' }}></div>
       <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-md-6">
@@ -152,10 +153,8 @@ const PetForm = () => {
         </div>
       </div>
 
-      <Footer />
     </div>
   );
 };
 
 export default PetForm;
-

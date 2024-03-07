@@ -14,6 +14,9 @@ import NavigationBar from './components/Navbar'
 const App = () => {
   return (
     <div>
+    <br/>
+    <br/>
+    <br/>
      <NavigationBar />
       <Routes>
         <Route path="/" element={<Home />} />
