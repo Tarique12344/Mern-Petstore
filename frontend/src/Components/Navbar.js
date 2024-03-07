@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from './Carousel1_pics/logo.jpg';
+import cart2 from './Cart2.png'
 
 const NavigationBar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -17,22 +18,28 @@ const NavigationBar = () => {
   };
 
   return (
-    <Navbar className="Navbar " bg="" variant="dark" expand="lg" fixed="top">
+    <Navbar className="Navbar" variant="dark" expand="lg" fixed="top">
       <Container>
       <img src={logo} alt='logo' className='logo' />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto hover ">
+          <Nav className="ml-auto hover">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/storefront">Storefront</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/contact">Contact Us</Nav.Link>
             <Nav.Link href="/petform">Pet Form</Nav.Link>
+            <Nav.Link href="/donate">Donate</Nav.Link>
             {isAuthenticated ? (
               <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
             ) : (
+              <>
               <Nav.Link href="/login">Login</Nav.Link>
-
+                <Link to="/cart" className="nav-link">
+                  <img src={cart2} style={{ width: '30px', height: '24px', marginRight: '5px' }} />
+                  
+                </Link>
+              </>
             )}
           </Nav>
         </Navbar.Collapse>
