@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
+import logo from './Carousel1_pics/logo.jpg';
 
 const PetForm = () => {
   const [name, setName] = useState('');
@@ -57,7 +58,12 @@ const PetForm = () => {
   return (
     <div>
       <NavigationBar />
+<<<<<<< HEAD
       <div style={{ marginTop: '50px' }}></div>
+=======
+      <img src={logo} alt='logo' className='logo' />
+      <br />
+>>>>>>> 080d02625a437138634afb67620628df56ca609e
       <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-md-6">
