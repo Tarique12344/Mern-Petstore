@@ -27,6 +27,7 @@ code {
   font-size: larger;
 }
 .Navbar{
+  background-color: #826f46;
   border-top: #826f46;
   border-bottom: #495057;
   display: flex;
@@ -37,7 +38,7 @@ code {
   font-size: larger;
 }
 .NavigationBar{
-  background-color: #2C3E50; 
+  background-color: #826f46; 
   padding: 10px;
   border-bottom: 3px solid #495057;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
@@ -48,7 +49,7 @@ code {
 }
 .Navbar-container {
   border: 2px solid #826f46; 
-  background-color: #6d8246; 
+  background-color: #826f46; 
   border-radius: 10px;
   overflow: hidden;
   justify-content: right;
@@ -195,30 +196,36 @@ margin-bottom: 100px;
 }
 .eight{
   height: 200px;
+  margin-top: -300px;
 
 }
 .six{
   height: 200px;
   width: 250px;
+  margin-left: -40px;
 }
 .seven{
   height: 200px;
   width: 200px;
+  margin-top:-300px;
 }
 .three{
   width: 600px;
 }
 .four{
-  width: 500px;
+  width: 600px;
 }
 .one{
-  width: 250px;
-  margin: 30px;
+  width: 200px;
+  height: 200px;
+  margin-left: -10px;
 }
 .two{
-  width: 225px;
+  width: 200px;
   height: 200px;
-  margin-right:60px;
+  margin: 20px;
+  margin-right:80px;
+  margin-top:10px;
 }
 .thee{
   width: 200px;
@@ -226,7 +233,8 @@ margin-bottom: 100px;
 }
 .fur{
   height:200px;
-  margin-right: 50px;
+  width: 200px;
+  margin-right: 40px;
 }
 .five{
   height: 200px;
@@ -235,8 +243,17 @@ margin-bottom: 100px;
 .nine{
   width: 200px;
   height: 200px;
+  margin-top: -300px;
+  margin-right:-90px;
  
 }
 .pic4{
   height: 300px;
+}
+.logo{
+margin-right:600px;
+margin-left: -270px;
+height: 100px;
+opacity: 0.8;
+width: 150px;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
 import { Container, Row, Col, Carousel } from 'react-bootstrap';
-import logo from './Carousel1_pics/logo.jpg';
+
 import pic1 from './Carousel1_pics/Playing_1.jpg';
 import pic2 from './Carousel1_pics/Playing_2.jpg';
 import pic3 from './Carousel1_pics/Playing_3.jpg';
@@ -22,8 +22,6 @@ import pic15 from './Adoption_pics/Dog_11_resized.jpg';
 const Home = () => {
   return (
     <div>
-
-      <img src={logo} alt='logo' className='logo' />
       <div className="my-4"></div>
       <br></br>
       <Container fluid className="mt-2">
@@ -31,9 +29,12 @@ const Home = () => {
           {/* Scrolling Photo Box */}
           <Col md={4} className="mb-3">
             <div className="box photo-box">
+            <br></br>
               <Carousel>
+              <br></br>
                 {/* Your scrolling photos go here */}
                 <Carousel.Item>
+                <br></br>
                   <img src={pic1} alt="Scrolling Photo 1" className="img-fluid" />
                 </Carousel.Item>
                 <Carousel.Item>
@@ -51,8 +52,13 @@ const Home = () => {
           </Col>
 
           <Col md={4}>
-            <div className="box text-box text-center">
-              <h2>Welcome to (whatever we're going to call this??)</h2>
+            <div className="box text-box text-center mx-4 ">
+            <br></br>
+            <br></br>
+              <h2>Welcome to (whatever we're going to call this??)
+              <br></br>
+              <br></br>
+              </h2>
               <p>
                 (Whatever we're going to call this??) started as a pet adoption agency way back when we started. Since then, we've found homes for innumerable animals, giving them a new lease on life, and in most cases, saved them from destruction at a local pound. Please see our storefront page to see what animals are currently up for adoption at our facility. Since we are not in operation for profit, we're able to use all of our funds for the shelter and caring for the animals, instead of hiring celebrities to do horribly annoying and pathos-laden commercials that feel like a form of torture that Torquemada would be proud of. While we do welcome donations, we'd be thrilled if you dropped off a bag of animal feed, volunteered to help out around the shelter, or Did the Bob Barker and had your pets spayed or neutered.
               </p>
@@ -61,6 +67,8 @@ const Home = () => {
 
           {/* Static Photo Box */}
           <Col md={4} className="mb-3">
+          <br></br>
+          <br></br>
             <div className="box photo-box text-right">
               {/* Your static photos go here */}
               <img src={pic6} alt="Static Photo 1" className="img-fluid mb-3 one" />
@@ -72,23 +80,24 @@ const Home = () => {
             </div>
           </Col>
         </Row>
+        <Row>
+          <Col md={4} className="mb-3">
+            <div className="box photo-box text-left">
+              <img src={pic12} alt="Static Photo 7" className="img-fluid mb-3 mx-2 seven" />
+              <img src={pic13} alt="Static Photo 8" className="img-fluid mb-3 mx-2 eight" />
+              <img src={pic14} alt="Static Photo 9" className="img-fluid mb-3 mx-2 nine" />
+              
+              {/* Add more static photos as needed */}
+            </div>
+          </Col>
+        </Row>
       </Container>
     </div>
   );
-  <Row>
-  <Col md={4} className="mb-3">
-    <div className="box photo-box text-left">
-      <img src={pic12} alt="Static Photo 7" className="img-fluid mb-3 seven" />
-      <img src={pic13} alt="Static Photo 8" className="img-fluid mb-3 eight" />
-      <img src={pic14} alt="Static Photo 9" className="img-fluid mb-3 nine" />
-      <img src={pic15} alt="Static Photo 10" className="img-fluid mb-3 ten" />
-      {/* Add more static photos as needed */}
-    </div>
-  </Col>
-</Row>
-};
+  }
 
-export default Home;
+
+  export default Home;
 
 
 

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import logo from './Carousel1_pics/logo.jpg';
 
 const NavigationBar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -18,6 +19,7 @@ const NavigationBar = () => {
   return (
     <Navbar className="Navbar " bg="" variant="dark" expand="lg" fixed="top">
       <Container>
+      <img src={logo} alt='logo' className='logo' />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto hover ">
