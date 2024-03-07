@@ -11,6 +11,7 @@ import Storefront2 from './components/Storefront2';
 import Footer from './components/Footer'
 import NavigationBar from './components/Navbar'
 import Cart from './components/Cart';
+import Donation from './components/Donation';
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/storefront" element={<StoreFront />} />
         <Route path="/petform" element={<PetForm />} />
+        <Route path="/donation" element={<Donation />} />
         <Route path="/cart" element={<Cart />} />
       </Routes>
       <br/>
