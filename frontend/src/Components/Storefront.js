@@ -4,7 +4,7 @@ import { Container, Carousel, Row, Col, Card } from 'react-bootstrap';
 import _ from 'lodash';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
-import logo from './Carousel1_pics/logo.jpg';
+
 
 const Storefront = () => {
   const [pets, setPets] = useState([]);
@@ -36,7 +36,7 @@ const Storefront = () => {
   return (
     <div>
       <NavigationBar />
-      <img src={logo} alt='logo' className='logo' />
+      
       <Container style={{ marginTop: '50px', paddingBottom: '80px', marginBottom: '20px' }}>
         {/* Top Carousel */}
         <Carousel interval={5000} style={{ maxHeight: '400px', overflow: 'hidden' }}>
@@ -46,36 +46,39 @@ const Storefront = () => {
                 className="d-block w-100 h-auto"
                 src={pet.image}
                 alt={`Slide ${pet._id}`}
-                style={{ objectFit: 'contain', maxHeight: '400px' }}
+                style={{ objectFit: 'contain', maxHeight: '400px', boxShadow: '0 4px 8px'}}
               />
             </Carousel.Item>
           ))}
         </Carousel>
 
         {/* Bottom Carousel with rows of three */}
-        <Row className="my-5 justify-content-center">
+        <Row className="my-5 justify-content-center hoverFlex">
           {filteredPets.map((pet) => (
             <Col key={pet._id} md={4} className="my-2">
-              <Card style={{ maxWidth: '14rem', margin: 'auto' }}>
-                <Card.Img
-                  variant="top"
-                  src={pet.image}
-                  alt={`Pet ${pet._id}`}
-                  className="img-fluid"
-                  style={{ objectFit: 'cover', height: '180px' }}
-                />
-                <Card.Body>
-                  <Card.Title>{pet.name}</Card.Title>
-                  <Card.Text>{pet.description}</Card.Text>
-                  <Card.Text>{pet.breed}</Card.Text>
-                  <Card.Text>{pet.age}</Card.Text>
-                </Card.Body>
-              </Card>
-            </Col>
+  <Card style={{ maxWidth: '14rem', margin: 'auto', boxShadow: '0 4px 8px' , transition: 'transform 0.3s ease-in-out',
+    cursor: 'pointer',}}
+    onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+  onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}>
+    <Card.Img
+      variant="top"
+      src={pet.image}
+      alt={`Pet ${pet._id}`}
+      className="img-fluid"
+      style={{ objectFit: 'cover', height: '180px' }}
+    />
+    <Card.Body>
+      <Card.Title>{pet.name}</Card.Title>
+      <Card.Text>
+        {`Breed: ${pet.breed}, Age: ${pet.age} years`}
+      </Card.Text>
+    </Card.Body>
+  </Card>
+</Col>
+
           ))}
         </Row>      
       </Container>
-      <Footer />
     </div>
   );
 };

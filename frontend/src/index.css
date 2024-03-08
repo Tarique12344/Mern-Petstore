@@ -131,6 +131,7 @@ textarea {
 }
 .foot{
   background-color: #826846;
+  margin-bottom: -500px;
 }
 .login {
   background-color: #826846;
@@ -139,6 +140,8 @@ textarea {
   border: 10px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: x-large;
+  
 }
 .center-content{
   justify-content: center;
@@ -196,7 +199,7 @@ margin-bottom: 100px;
 }
 .eight{
   height: 200px;
-  margin-top: -300px;
+  margin-top: -500px;
 
 }
 .six{
@@ -207,7 +210,7 @@ margin-bottom: 100px;
 .seven{
   height: 200px;
   width: 200px;
-  margin-top:-300px;
+  margin-top:-500px;
 }
 .three{
   width: 600px;
@@ -243,21 +246,15 @@ margin-bottom: 100px;
 .nine{
   width: 200px;
   height: 200px;
-  margin-top: -300px;
+  margin-top: -500px;
   margin-right:-90px;
  
 }
-<<<<<<< HEAD
+.contact{
+  font-size: xx-large;
+}
+.hoverFlex {
+  transition: transform 0.3s ease-in-out;
+}
 
-=======
-.pic4{
-  height: 300px;
-}
-.logo{
-margin-right:600px;
-margin-left: -270px;
-height: 100px;
-opacity: 0.8;
-width: 150px;
-}
->>>>>>> 080d02625a437138634afb67620628df56ca609e
+
