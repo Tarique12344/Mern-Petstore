@@ -1,18 +1,15 @@
-//DO NOT TOUCH ANY OR CHANGE ANY 
-
-
-// Import statements
+// Storefront.js
 import React, { useState, useEffect } from 'react';
-import { Container, Carousel, Row, Col, Card } from 'react-bootstrap';
+import { Container, Carousel, Row, Col, Card, Button } from 'react-bootstrap';
 import _ from 'lodash';
 import NavigationBar from './Navbar';
-import Footer from './Footer';
 import logo from './Carousel1_pics/logo.jpg';
+import { useCart } from './CartProvider';
 
 const Storefront = () => {
+  const { dispatch } = useCart();
   const [pets, setPets] = useState([]);
   const [filteredPets, setFilteredPets] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     const fetchPets = async () => {
@@ -22,6 +19,8 @@ const Storefront = () => {
 
         // Filter out pets without images
         const petsWithImages = data.filter((pet) => pet.image !== null && pet.image !== undefined);
+
+        console.log('Pets with images:', petsWithImages);
 
         setPets(petsWithImages);
         setFilteredPets(petsWithImages);
@@ -35,6 +34,14 @@ const Storefront = () => {
 
   // Shuffle and slice the pets for the Top Carousel
   const shuffledAndSlicedTopPets = _.shuffle(pets).slice(0, 5);
+
+  const handleAddToCart = (pet) => {
+    console.log('Adding to cart:', pet);
+    dispatch({ type: 'ADD_TO_CART', payload: pet });
+  };
+
+  console.log('Pets:', pets);
+  console.log('FilteredPets:', filteredPets);
 
   return (
     <div>
@@ -68,25 +75,29 @@ const Storefront = () => {
                       alt={`Pet ${pet._id}`}
                       style={{ objectFit: 'cover', height: '120px' }}
                     />
-                    <Card.Body>
+                    <Card.Body className="d-flex flex-column">
                       <Card.Title>{pet.name}</Card.Title>
                       <Card.Text>{pet.description}</Card.Text>
                       <Card.Text>{pet.age}</Card.Text>
+                      <div className="mt-auto">
+                        <Button variant="success" onClick={() => handleAddToCart(pet)}>
+                          Add to Cart
+                        </Button>
+                      </div>
                     </Card.Body>
                   </Card>
                 </Col>
               ))}
             </Row>
           ))}
-        </Carousel>      
-      
+        </Carousel>
       </Container>
-     <br />
-     <br />
-     <br />
-     <br />
-     <br />
-     <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 };
