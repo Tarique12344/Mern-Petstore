@@ -1,15 +1,15 @@
-// Import statements
+// Storefront.js
 import React, { useState, useEffect } from 'react';
-import { Container, Carousel, Row, Col, Card } from 'react-bootstrap';
+import { Container, Carousel, Row, Col, Card, Button } from 'react-bootstrap';
 import _ from 'lodash';
 import NavigationBar from './Navbar';
-import Footer from './Footer';
-
+import logo from './Carousel1_pics/logo.jpg';
+import { useCart } from './CartProvider';
 
 const Storefront = () => {
+  const { dispatch } = useCart();
   const [pets, setPets] = useState([]);
   const [filteredPets, setFilteredPets] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState(null);
 
   useEffect(() => {
     const fetchPets = async () => {
@@ -19,6 +19,8 @@ const Storefront = () => {
 
         // Filter out pets without images
         const petsWithImages = data.filter((pet) => pet.image !== null && pet.image !== undefined);
+
+        console.log('Pets with images:', petsWithImages);
 
         setPets(petsWithImages);
         setFilteredPets(petsWithImages);
@@ -32,6 +34,14 @@ const Storefront = () => {
 
   // Shuffle and slice the pets for the Top Carousel
   const shuffledAndSlicedTopPets = _.shuffle(pets).slice(0, 5);
+
+  const handleAddToCart = (pet) => {
+    console.log('Adding to cart:', pet);
+    dispatch({ type: 'ADD_TO_CART', payload: pet });
+  };
+
+  console.log('Pets:', pets);
+  console.log('FilteredPets:', filteredPets);
 
   return (
     <div>
@@ -52,33 +62,42 @@ const Storefront = () => {
           ))}
         </Carousel>
 
-        {/* Bottom Carousel with rows of three */}
-        <Row className="my-5 justify-content-center hoverFlex">
-          {filteredPets.map((pet) => (
-            <Col key={pet._id} md={4} className="my-2">
-  <Card style={{ maxWidth: '14rem', margin: 'auto', boxShadow: '0 4px 8px' , transition: 'transform 0.3s ease-in-out',
-    cursor: 'pointer',}}
-    onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
-  onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}>
-    <Card.Img
-      variant="top"
-      src={pet.image}
-      alt={`Pet ${pet._id}`}
-      className="img-fluid"
-      style={{ objectFit: 'cover', height: '180px' }}
-    />
-    <Card.Body>
-      <Card.Title>{pet.name}</Card.Title>
-      <Card.Text>
-        {`Breed: ${pet.breed}, Age: ${pet.age} years`}
-      </Card.Text>
-    </Card.Body>
-  </Card>
-</Col>
-
+        {/* Bottom Carousel with rows */}
+        <Carousel className="my-5" indicators={false} interval={null} style={{ maxHeight: '150px' }}>
+          {_.chunk(filteredPets, 5).map((rowPets, rowIndex) => (
+            <Row key={rowIndex} className="justify-content-center">
+              {rowPets.map((pet) => (
+                <Col key={pet._id} md={2} className="my-2">
+                  <Card style={{ height: '100%' }}>
+                    <Card.Img
+                      variant="top"
+                      src={pet.image}
+                      alt={`Pet ${pet._id}`}
+                      style={{ objectFit: 'cover', height: '120px' }}
+                    />
+                    <Card.Body className="d-flex flex-column">
+                      <Card.Title>{pet.name}</Card.Title>
+                      <Card.Text>{pet.description}</Card.Text>
+                      <Card.Text>{pet.age}</Card.Text>
+                      <div className="mt-auto">
+                        <Button variant="success" onClick={() => handleAddToCart(pet)}>
+                          Add to Cart
+                        </Button>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))}
+            </Row>
           ))}
-        </Row>      
+        </Carousel>
       </Container>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 };

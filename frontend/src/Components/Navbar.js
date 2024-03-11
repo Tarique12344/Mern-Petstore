@@ -29,7 +29,7 @@ const NavigationBar = () => {
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/contact">Contact Us</Nav.Link>
             <Nav.Link href="/petform">Pet Form</Nav.Link>
-            <Nav.Link href="/donate">Donate</Nav.Link>
+            <Nav.Link href="/donation">Donate</Nav.Link>
             {isAuthenticated ? (
               <Nav.Link onClick={handleLogout}>Logout</Nav.Link>
             ) : (

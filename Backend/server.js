@@ -1,38 +1,39 @@
-// server.js
 const express = require('express');
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
+const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const petRoutes = require('./routes/petRoutes');
 const crypto = require('crypto');
 
-const authRoutes = require('./routes/authRoutes');
-const petRoutes = require('./routes/petRoutes');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
 const app = express();
 
-// Middleware
+app.use(express.json());
+
+// middleware
 app.use(express.static('public'));
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
-// View engine
+// view engine
 app.set('view engine', 'ejs');
 
-// Database connection
+// database connection
 const mongoURI = process.env.MONGODB_URI;
 mongoose
   .connect(mongoURI)
-  .then(() => app.listen(process.env.PORT || 5000))
+  .then((result) => app.listen(process.env.PORT || 5000))
   .catch((err) => console.log(err));
 
-// Routes
+// routes
 app.get('/', (req, res) => res.render('home'));
-app.use('/pets', petRoutes); // Assuming you have pet-related routes
-app.use('/auth', authRoutes); // Assuming you want to prefix auth routes with '/auth'
+app.use(petRoutes);
+app.use(authRoutes);
 
 // Generate a random secret key with 32 bytes and convert it to a hexadecimal string
 const secretKey = process.env.SECRET_KEY || crypto.randomBytes(32).toString('hex');

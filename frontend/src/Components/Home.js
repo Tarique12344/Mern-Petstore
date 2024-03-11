@@ -52,15 +52,10 @@ const Home = () => {
           </Col>
 
           <Col md={4}>
-            <div className="box text-box text-center mx-4 ">
-            <br></br>
-            <br></br>
-              <h2>Welcome to (whatever we're going to call this??)
-              <br></br>
-              <br></br>
-              </h2>
+            <div className="box text-box text-center">
+            <h2>Welcome to ADEPARTAR!</h2>
               <p>
-                (Whatever we're going to call this??) started as a pet adoption agency way back when we started. Since then, we've found homes for innumerable animals, giving them a new lease on life, and in most cases, saved them from destruction at a local pound. Please see our storefront page to see what animals are currently up for adoption at our facility. Since we are not in operation for profit, we're able to use all of our funds for the shelter and caring for the animals, instead of hiring celebrities to do horribly annoying and pathos-laden commercials that feel like a form of torture that Torquemada would be proud of. While we do welcome donations, we'd be thrilled if you dropped off a bag of animal feed, volunteered to help out around the shelter, or Did the Bob Barker and had your pets spayed or neutered.
+                ADEPARTAR started as a pet adoption agency way back when we started. Since then, we've found homes for innumerable animals, giving them a new lease on life and in most cases, saved them from destruction at a local pound. Please see our <a href='Storefront'>storefront</a> page to see what animals are currently up for adoption at our facility. Since we are not in operation for profit, we're able to use all of our funds for the shelter and caring for the animals, instead of hiring celebrities to do horribly annoying and pathos-laden commercials that feel like a form of torture that Torquemada would be proud of. While we do welcome <a href='Donation'>donations</a>, we'd be thrilled if you dropped off a bag of animal feed, volunteered to help out around the shelter, or did the Bob Barker and had your pets spayed or neutered.
               </p>
             </div>
           </Col>
