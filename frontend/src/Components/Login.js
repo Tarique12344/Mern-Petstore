@@ -1,3 +1,5 @@
+// Login.js
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
@@ -45,7 +47,7 @@ const Login = () => {
   };
 
   return (
-    <div className="site-wrapper">
+    <div>
       <NavigationBar />
       <br />
       <div className="container mt-5">
@@ -56,11 +58,11 @@ const Login = () => {
                 <h2 className="card-title text-center mb-4 login">Login</h2>
                 <form>
                   <div className="mb-3">
-                    <label htmlFor="username" className="form-label">
-                      Username:
+                    <label htmlFor="email" className="form-label">
+                      Email:
                     </label>
                     <input
-                      id="username"
+                      id="email"
                       type="text"
                       className="form-control"
                       value={email}
