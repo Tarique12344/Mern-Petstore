@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
-import logo from './Carousel1_pics/logo.jpg';
+
 
 const Donation = () => {
   const [donationAmount, setDonationAmount] = useState('');
@@ -16,7 +16,7 @@ const Donation = () => {
   return (
     <div>
       <NavigationBar />
-      <img src={logo} alt='logo' className='logo' />
+     
       <Container style={{ marginTop: '50px', paddingBottom: '80px' }}>
       <p>
                 Your donation to ADEPARTAR directly impacts lives in your community. We are able to shelter, feed, and give medical attention

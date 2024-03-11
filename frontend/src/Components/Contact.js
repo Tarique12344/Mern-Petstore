@@ -4,7 +4,7 @@ import NavigationBar from './Navbar';  // Updated import
 import Footer from './Footer';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import logo from './Carousel1_pics/logo.jpg';
+
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -30,7 +30,7 @@ const Contact = () => {
   return (
     <div>
       
-      <img src={logo} alt='logo'className='logo'/>
+    
       <br />
       <Container className="mt-5">
         <Row className="justify-content-center list">

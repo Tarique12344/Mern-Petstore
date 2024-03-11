@@ -16,6 +16,9 @@ import Donation from './components/Donation';
 const App = () => {
   return (
     <div>
+    <br/>
+    <br/>
+    <br/>
      <NavigationBar />
       <Routes>
         <Route path="/" element={<Home />} />

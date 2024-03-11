@@ -46,8 +46,8 @@ const Storefront = () => {
   return (
     <div>
       <NavigationBar />
-      <img src={logo} alt='logo' className='logo' />
-      <Container style={{ marginTop: '50px', paddingBottom: '80px' }}>
+      
+      <Container style={{ marginTop: '50px', paddingBottom: '80px', marginBottom: '20px' }}>
         {/* Top Carousel */}
         <Carousel interval={5000} style={{ maxHeight: '400px', overflow: 'hidden' }}>
           {shuffledAndSlicedTopPets.map((pet) => (
@@ -56,7 +56,7 @@ const Storefront = () => {
                 className="d-block w-100 h-auto"
                 src={pet.image}
                 alt={`Slide ${pet._id}`}
-                style={{ objectFit: 'contain', maxHeight: '400px' }}
+                style={{ objectFit: 'contain', maxHeight: '400px', boxShadow: '0 4px 8px'}}
               />
             </Carousel.Item>
           ))}

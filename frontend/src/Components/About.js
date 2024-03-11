@@ -7,10 +7,11 @@ const About = () => {
   return (
     <div>
     
-      <img src={logo} alt='logo' className='logo' />
+      
       <div className="mb-5">
         <div className="container mt-5 pb-5">
           <div className="container mt-5">
+          <br></br>
             <h2 className="text-center mb-4 tilt">About Us</h2>
 
             <div className="row text">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
@@ -8,7 +8,9 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSignup = async () => {
+  const handleSignup = async (event) => {
+    event.preventDefault(); // Prevent the default form submission
+
     try {
       const response = await fetch('http://localhost:5000/signup', {
         method: 'POST',
@@ -34,15 +36,9 @@ const Signup = () => {
     }
   };
 
-  useEffect(() => {
-    // Clear input fields after successful signup
-    setEmail('');
-    setPassword('');
-  }, [email, password]);
-
   return (
     <div>
-      
+      <NavigationBar />
       <br />
       <div className="container mt-5">
         <div className="row justify-content-center">
