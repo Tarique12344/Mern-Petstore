@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
-import logo from './Carousel1_pics/logo.jpg';
+
 
 const PetForm = () => {
   const [name, setName] = useState('');

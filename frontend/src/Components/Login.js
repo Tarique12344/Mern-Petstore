@@ -45,7 +45,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="site-wrapper">
       <NavigationBar />
       <br />
       <div className="container mt-5">
