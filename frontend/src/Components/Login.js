@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
 import Footer from './Footer';
-import logo from './Carousel1_pics/logo.jpg';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -21,7 +20,10 @@ const Login = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
       });
 
       const data = await response.json();
@@ -45,8 +47,7 @@ const Login = () => {
   return (
     <div>
       <NavigationBar />
-      <img src={logo} alt='logo'className='logo'/>
-      <br></br>
+      <br />
       <div className="container mt-5">
         <div className="row justify-content-center">
           <div className="col-md-6">
@@ -83,7 +84,7 @@ const Login = () => {
                       {loading ? 'Logging In...' : 'Login'}
                     </button>
                   </div>
-                  <br></br>
+                  <br />
                   <p className='text-center'>No account? Sign up <a href='./signup'>Here!</a></p>
                   {errorMessage && <p className="text-center mt-3" style={{ color: 'red' }}>{errorMessage}</p>}
                 </form>
@@ -92,8 +93,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-
-      <Footer />
     </div>
   );
 };

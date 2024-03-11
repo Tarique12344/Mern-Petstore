@@ -78,6 +78,10 @@ const handleErrors = (err) => {
     const { email, password } = req.body;
   
     try {
+      if (!email || !password) {
+        throw Error('Email and password are required.');
+      }
+  
       const user = await User.login(email, password);
       const token = createToken(user._id);
       res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 });

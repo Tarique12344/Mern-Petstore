@@ -7,12 +7,13 @@ const cors = require('cors');
 const petRoutes = require('./routes/petRoutes');
 const crypto = require('crypto');
 
-
 const dotenv = require('dotenv');
 
 dotenv.config();
 
 const app = express();
+
+app.use(express.json());
 
 // middleware
 app.use(express.static('public'));
@@ -27,19 +28,18 @@ app.set('view engine', 'ejs');
 const mongoURI = process.env.MONGODB_URI;
 mongoose
   .connect(mongoURI)
-  .then((result) => app.listen(5000))
+  .then((result) => app.listen(process.env.PORT || 5000))
   .catch((err) => console.log(err));
 
 // routes
 app.get('/', (req, res) => res.render('home'));
 app.use(petRoutes);
-app.use(authRoutes)
+app.use(authRoutes);
 
 // Generate a random secret key with 32 bytes and convert it to a hexadecimal string
-const secretKey = process.env.SECRET_KEY
+const secretKey = process.env.SECRET_KEY || crypto.randomBytes(32).toString('hex');
 console.log('Secret Key:', secretKey);
 
-console.log("RUnning on port:",process.env.PORT)
-
+console.log('Running on port:', process.env.PORT || 5000);
 
 module.exports = app;

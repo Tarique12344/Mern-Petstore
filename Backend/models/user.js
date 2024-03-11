@@ -17,17 +17,23 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+// user model
 userSchema.statics.login = async function (email, password) {
   const user = await this.findOne({ email });
+
   if (user) {
     const auth = await bcrypt.compare(password, user.password);
+
     if (auth) {
       return user;
     }
-    throw Error('incorrect password');
+
+    throw Error('Incorrect password');
   }
-  throw Error('incorrect email');
+
+  throw Error('Incorrect email');
 };
+
 
 userSchema.post('save', function (doc, next) {
   console.log('New user was created and saved', doc);
