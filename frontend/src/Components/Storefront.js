@@ -54,15 +54,12 @@ const Storefront = () => {
   return (
     <div>
       <NavigationBar />
-<<<<<<< HEAD
-=======
       <br/>
       <br/>
       <br/>
       <br/>
       <br/>
  
->>>>>>> 87789698e03d491ef70e61f130c6a98fb4e7576a
 
       <Container style={{ marginTop: '50px', paddingBottom: '80px', marginBottom: '20px' }}>
         {/* Top Carousel */}
