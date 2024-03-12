@@ -64,7 +64,9 @@ module.exports.login_post = async (req, res) => {
 
   try {
     if (!email || !password) {
-      throw Error('Email and password are required.');
+      // Instead of revealing details about missing fields,
+      // respond with a generic error message
+      throw Error('Invalid email or password.');
     }
 
     const user = await User.login(email, password);
@@ -85,4 +87,17 @@ module.exports.logout = (req, res) => {
   // Redirect or send a response as needed
   res.redirect('/');
   // or res.status(200).json({ message: 'Logout successful' });
+};
+
+
+// Controller to check authentication status
+exports.checkAuthenticationStatus = (req, res) => {
+  // Check authentication status here
+  if (req.user) {
+    // User is authenticated
+    res.status(200).json({ isAuthenticated: true });
+  } else {
+    // User is not authenticated
+    res.status(200).json({ isAuthenticated: false });
+  }
 };

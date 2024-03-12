@@ -1,4 +1,3 @@
-// routes/petRoutes.js
 const express = require('express');
 const router = express.Router();
 const Pet = require('../models/pets');
@@ -7,6 +6,9 @@ router.post('/storefront', async (req, res) => {
   try {
     const { name, description, breed, age, image, category } = req.body;
 
+    // Generate a unique ID for the pet
+    const id = generateUniqueId(); // You need to implement this function
+
     const newPet = new Pet({
       name,
       description,
@@ -14,6 +16,7 @@ router.post('/storefront', async (req, res) => {
       age,
       image,
       category,
+      id
     });
 
     const savedPet = await newPet.save();
@@ -45,5 +48,10 @@ router.get('/storefront/:category', async (req, res) => {
     res.status(500).json({ message: 'Internal Server Error' });
   }
 });
+
+// Helper function to generate a unique ID (you need to implement this)
+function generateUniqueId() {
+  // Generate a unique ID using a library or a custom algorithm
+}
 
 module.exports = router;
