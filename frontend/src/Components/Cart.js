@@ -15,7 +15,12 @@ const Cart = () => {
       <h2>Your Cart</h2>
       {state.cartItems.map((item) => (
         <Card key={item.id}>
-          <Card.Img variant="top" src={item.image} alt={`Pet ${item.id}`} />
+          <Card.Img variant="top" 
+          src={item.image} 
+          alt={`Pet ${item.id}`} 
+          style={{ objectFit: 'cover', height: '200px', width: '10%' }}
+          />
+          
           <Card.Body>
             <Card.Title>{item.name}</Card.Title>
             <Card.Text>{item.description}</Card.Text>
