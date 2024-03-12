@@ -46,7 +46,7 @@ const Storefront = () => {
   return (
     <div>
       <NavigationBar />
-      
+
       <Container style={{ marginTop: '50px', paddingBottom: '80px', marginBottom: '20px' }}>
         {/* Top Carousel */}
         <Carousel interval={5000} style={{ maxHeight: '400px', overflow: 'hidden' }}>
@@ -56,7 +56,7 @@ const Storefront = () => {
                 className="d-block w-100 h-auto"
                 src={pet.image}
                 alt={`Slide ${pet._id}`}
-                style={{ objectFit: 'contain', maxHeight: '400px', boxShadow: '0 4px 8px'}}
+                style={{ objectFit: 'contain', maxHeight: '400px', boxShadow: '0 4px 8px' }}
               />
             </Carousel.Item>
           ))}
@@ -68,16 +68,28 @@ const Storefront = () => {
             <Row key={rowIndex} className="justify-content-center">
               {rowPets.map((pet) => (
                 <Col key={pet._id} md={2} className="my-2">
-                  <Card style={{ height: '100%' }}>
+                  <Card
+                    style={{
+                      maxWidth: '14rem',
+                      margin: 'auto',
+                      boxShadow: '0 0 15px 5px rgba(255, 165, 0, 0.5), 0 0 30px 10px rgba(255, 165, 0, 0.3)',
+                      transition: 'transform 0.3s ease-in-out box-shadow: 0.3s ease-in-out',
+                      cursor: 'pointer',
+                    }}
+                    onMouseEnter={(e) => {e.currentTarget.style.boxShadow = '0 0 15px rgba(255, 165, 0, 0.9)'}}
+                    onMouseLeave={(e) => {e.currentTarget.style.boxShadow = '0 4px 8px rgba(0, 0, 0.5, 0.7)'}}
+                  >
+
+
                     <Card.Img
                       variant="top"
                       src={pet.image}
                       alt={`Pet ${pet._id}`}
-                      style={{ objectFit: 'cover', height: '120px' }}
+                      style={{ objectFit: 'cover', height: '100px' }}
                     />
-                    <Card.Body className="d-flex flex-column">
+                    <Card.Body className="d-flex flex-column ">
                       <Card.Title>{pet.name}</Card.Title>
-                      <Card.Text>{pet.description}</Card.Text>
+                      <Card.Text> {`Breed: ${pet.breed}`}</Card.Text>
                       <Card.Text>{pet.age}</Card.Text>
                       <div className="mt-auto">
                         <Button variant="success" onClick={() => handleAddToCart(pet)}>
