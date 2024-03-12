@@ -7,9 +7,10 @@ import logo from './Carousel1_pics/logo.jpg';
 import { useCart } from './CartProvider';
 
 const Storefront = () => {
-  const { dispatch } = useCart();
+  const { dispatch, state } = useCart();
   const [pets, setPets] = useState([]);
   const [filteredPets, setFilteredPets] = useState([]);
+  const [notification, setNotification] = useState(null);
 
   useEffect(() => {
     const fetchPets = async () => {
@@ -36,16 +37,34 @@ const Storefront = () => {
   const shuffledAndSlicedTopPets = _.shuffle(pets).slice(0, 5);
 
   const handleAddToCart = (pet) => {
-    console.log('Adding to cart:', pet);
-    dispatch({ type: 'ADD_TO_CART', payload: pet });
-  };
+    const isItemInCart = state.cartItems.some(item => item.id === pet.id);
 
-  console.log('Pets:', pets);
-  console.log('FilteredPets:', filteredPets);
+    if (isItemInCart) {
+      setNotification('Your pet is already in the cart.');
+    } else {
+      dispatch({ type: 'ADD_TO_CART', payload: pet });
+      setNotification('You have added a new friend to your cart! :-D');
+      
+      // Clear notification after 5 seconds
+      setTimeout(() => {
+        setNotification(null);
+      }, 5000);
+    }
+    };
 
+   
   return (
     <div>
       <NavigationBar />
+<<<<<<< HEAD
+=======
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+ 
+>>>>>>> 87789698e03d491ef70e61f130c6a98fb4e7576a
 
       <Container style={{ marginTop: '50px', paddingBottom: '80px', marginBottom: '20px' }}>
         {/* Top Carousel */}
@@ -61,6 +80,8 @@ const Storefront = () => {
             </Carousel.Item>
           ))}
         </Carousel>
+        {/* Notification display */}
+        {notification && <div style={{ color: 'white' }}>{notification}</div>}
 
         {/* Bottom Carousel with rows */}
         <Carousel className="my-5" indicators={false} interval={null} style={{ maxHeight: '150px' }}>

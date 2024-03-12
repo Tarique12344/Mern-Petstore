@@ -19,6 +19,7 @@ const App = () => {
     <br/>
     <br/>
     <br/>
+    <br/>
      <NavigationBar />
       <Routes>
         <Route path="/" element={<Home />} />
