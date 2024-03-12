@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import NavigationBar from './Navbar';
-import Footer from './Footer';
+
 
 
 const Donation = () => {
@@ -44,11 +44,16 @@ const Donation = () => {
                     Donate
                   </Button>
                 </Form>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+              </Card.Body>
+            </Card>
+            <div className="mt-4">
+              
+            </div>
+          </Col>
+        </Row>
+      </Container>
+
+
     </div>
   );
 };
