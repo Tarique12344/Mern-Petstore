@@ -56,15 +56,12 @@ const Storefront = () => {
   return (
     <div>
       <NavigationBar />
-<<<<<<< HEAD
-=======
       <br/>
       <br/>
       <br/>
       <br/>
       <br/>
  
->>>>>>> 87789698e03d491ef70e61f130c6a98fb4e7576a
 
       <Container style={{ marginTop: '50px', paddingBottom: '80px', marginBottom: '20px' }}>
         {/* Top Carousel */}
@@ -112,8 +109,8 @@ const Storefront = () => {
                       <Card.Title>{pet.name}</Card.Title>
                       <Card.Text> {`Breed: ${pet.breed}`}</Card.Text>
                       <Card.Text>{pet.age}</Card.Text>
-                      <div className="mt-auto">
-                        <Button variant="success" onClick={() => handleAddToCart(pet)}>
+                      <div className="mt-auto add">
+                        <Button variant="success"  className="add-to-cart-button" onClick={() => handleAddToCart(pet)}>
                           Add to Cart
                         </Button>
                       </div>

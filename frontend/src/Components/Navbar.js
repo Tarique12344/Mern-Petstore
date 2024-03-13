@@ -23,7 +23,7 @@ const NavigationBar = () => {
       <img src={logo} alt='logo' className='logo' />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto hover">
+          <Nav className="ml-auto hover bar">
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/storefront">Storefront</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>

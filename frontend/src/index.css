@@ -90,6 +90,7 @@ code {
   font-family: Georgia, 'Times New Roman', Times, serif;
  
 }
+
 .card.title{
   border-top: 10px;
 }
@@ -98,7 +99,7 @@ code {
  border: 1px;
 }
 .button:hover{
- color:#FFD700
+ color:#FFD700;
 }
 form {
   max-width: 400px; /* Set a maximum width for the form */
@@ -128,6 +129,14 @@ textarea {
 .but:hover{
   color: #FFD700;
   border-top: #ffffff;
+  
+}
+.add-to-cart-button:hover{
+  background-color: #FFD700;
+  color:white
+}
+.donate:hover{
+  background-color: #FFD700;
 }
 .foot{
   background-color: #826846;
@@ -163,6 +172,7 @@ transition: transform 0.2s ease-in-out;
   opacity: 0.8;
   width: 150px;
  height: auto;
+ margin-left: -300px;
 }
 .contact{
   text-align: center;
