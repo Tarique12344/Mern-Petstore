@@ -10,7 +10,7 @@ const Storefront = () => {
   const { dispatch, state } = useCart();
   const [pets, setPets] = useState([]);
   const [filteredPets, setFilteredPets] = useState([]);
-  const [notification, setNotification] = useState(null);
+  const [notificationMessage, setNotificationMessage] = useState('');
 
   useEffect(() => {
     const fetchPets = async () => {
@@ -40,17 +40,15 @@ const Storefront = () => {
     const isItemInCart = state.cartItems.some(item => item.id === pet.id);
 
     if (isItemInCart) {
-      setNotification('Your pet is already in the cart.');
+      alert('Your pet is already in the cart.');
     } else {
       dispatch({ type: 'ADD_TO_CART', payload: pet });
-      setNotification('You have added a new friend to your cart! :-D');
-      
-      // Clear notification after 5 seconds
+      setNotificationMessage('You have added a new friend to your cart :-D');
       setTimeout(() => {
-        setNotification(null);
+        setNotificationMessage('');
       }, 5000);
     }
-    };
+  };
 
    
   return (
@@ -77,8 +75,9 @@ const Storefront = () => {
             </Carousel.Item>
           ))}
         </Carousel>
+        
         {/* Notification display */}
-        {notification && <div style={{ color: 'white' }}>{notification}</div>}
+        {notificationMessage && <div >{notificationMessage}</div>}
 
         {/* Bottom Carousel with rows */}
         <Carousel className="my-5" indicators={false} interval={null} style={{ maxHeight: '150px' }}>
