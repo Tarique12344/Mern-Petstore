@@ -50,6 +50,7 @@ const Home = () => {
               </Carousel>
             </div>
           </Col>
+         
 
           <Col md={4}>
             <div className="box text-box text-center">
