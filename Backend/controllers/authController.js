@@ -31,21 +31,21 @@ const handleErrors = (err) => {
 const maxAge = 3 * 24 * 60 * 60;
 
 const createToken = (id) => {
-  return jwt.sign({ id }, 'secret message ', {
+  return jwt.sign({ id }, 'your_secret_key', {
     expiresIn: maxAge,
   });
 };
 
 // controller actions
-module.exports.signup_get = (req, res) => {
+const signup_get = (req, res) => {
   res.render('signup');
 };
 
-module.exports.login_get = (req, res) => {
+const login_get = (req, res) => {
   res.render('login');
 };
 
-module.exports.signup_post = async (req, res) => {
+const signup_post = async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -59,12 +59,12 @@ module.exports.signup_post = async (req, res) => {
   }
 };
 
-module.exports.login_post = async (req, res) => {
+const login_post = async (req, res) => {
   const { email, password } = req.body;
 
   try {
     if (!email || !password) {
-      throw Error('Email and password are required.');
+      throw Error('Invalid email or password.');
     }
 
     const user = await User.login(email, password);
@@ -78,11 +78,34 @@ module.exports.login_post = async (req, res) => {
 };
 
 // Logout controller
-module.exports.logout = (req, res) => {
+const logout = (req, res) => {
   // Clear the JWT cookie
   res.clearCookie('jwt');
-
-  // Redirect or send a response as needed
-  res.redirect('/');
-  // or res.status(200).json({ message: 'Logout successful' });
+  
+  // Send a response indicating successful logout
+  res.status(200).json({ message: 'Logout successful' });
 };
+
+
+
+
+// Controller to check authentication status
+checkAuthenticationStatus = (req, res) => {
+  try {
+    // Check authentication status here
+    if (req.user) {
+      // User is authenticated
+      res.status(200).json({ isAuthenticated: true });
+    } else {
+      // User is not authenticated
+      res.status(200).json({ isAuthenticated: false });
+    }
+  } catch (error) {
+    console.error('Error checking authentication status:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+
+
+module.exports = { signup_get, login_get, signup_post, login_post, logout, checkAuthenticationStatus };

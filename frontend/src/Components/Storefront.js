@@ -89,7 +89,6 @@ const Storefront = () => {
                     style={{
                       maxWidth: '14rem',
                       margin: 'auto',
-                      boxShadow: '0 0 15px 5px rgba(255, 165, 0, 0.5), 0 0 30px 10px rgba(255, 165, 0, 0.3)',
                       transition: 'transform 0.3s ease-in-out box-shadow: 0.3s ease-in-out',
                       cursor: 'pointer',
                     }}
@@ -108,8 +107,8 @@ const Storefront = () => {
                       <Card.Title>{pet.name}</Card.Title>
                       <Card.Text> {`Breed: ${pet.breed}`}</Card.Text>
                       <Card.Text>{pet.age}</Card.Text>
-                      <div className="mt-auto">
-                        <Button variant="success" onClick={() => handleAddToCart(pet)}>
+                      <div className="mt-auto add">
+                        <Button variant="success"  className="add-to-cart-button" onClick={() => handleAddToCart(pet)}>
                           Add to Cart
                         </Button>
                       </div>
