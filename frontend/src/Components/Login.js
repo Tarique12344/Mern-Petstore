@@ -1,9 +1,6 @@
-// Login.js
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
-import Footer from './Footer';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -47,7 +44,7 @@ const Login = () => {
   };
 
   return (
-    <div>
+    <div className="login-container">
       <NavigationBar />
       <br />
       <div className="container mt-5">
@@ -94,6 +91,9 @@ const Login = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="foot">
+        {/* Your footer content */}
       </div>
     </div>
   );

@@ -1,6 +1,5 @@
 import React from 'react';
 import NavigationBar from './Navbar';
-import Footer from './Footer';
 import { Container, Row, Col, Carousel } from 'react-bootstrap';
 
 import pic1 from './Carousel1_pics/Playing_1.jpg';
@@ -64,7 +63,7 @@ const Home = () => {
           <Col md={4} className="mb-3">
           <br></br>
           <br></br>
-            <div className="box photo-box text-right">
+            <div className="box photo-box text-right img-large">
               {/* Your static photos go here */}
               <img src={pic6} alt="Static Photo 1" className="img-fluid mb-3 one" />
               <img src={pic7} alt="Static Photo 2" className="img-fluid mb-3 two" />
@@ -76,7 +75,7 @@ const Home = () => {
           </Col>
         </Row>
         <Row>
-          <Col md={4} className="mb-3">
+          <Col md={4} className="mb-3 img-large">
             <div className="box photo-box text-left">
               <img src={pic12} alt="Static Photo 7" className="img-fluid mb-3 mx-2 seven" />
               <img src={pic13} alt="Static Photo 8" className="img-fluid mb-3 mx-2 eight" />

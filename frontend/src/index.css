@@ -27,9 +27,9 @@ code {
   font-size: larger;
 }
 .Navbar{
-  background-color: #826f46;
-  border-top: #826f46;
-  border-bottom: #495057;
+  background-color: #826846;
+  border-top: #826846;
+  border-bottom: #826846;
   display: flex;
 
   margin-bottom: 40px;
@@ -140,7 +140,7 @@ textarea {
 }
 .foot{
   background-color: #826846;
-  margin-top: -500px;
+  margin-bottom: -500px;
 }
 .login {
   background-color: #826846;
@@ -172,8 +172,17 @@ transition: transform 0.2s ease-in-out;
   opacity: 0.8;
   width: 150px;
  height: auto;
- margin-left: -300px;
+ margin-right: 100px;
 }
+
+/* Show logo on smaller screens */
+@media (max-width: 768px) {
+  .logo {
+    display: inline;
+      /* Show the logo on screens with a width of 768 pixels or smaller */
+  }
+}
+
 .contact{
   text-align: center;
 }
@@ -209,7 +218,7 @@ margin-bottom: 100px;
 }
 .eight{
   height: 200px;
-  margin-top: -500px;
+  margin-top: -200px;
 
 }
 .six{
@@ -220,7 +229,7 @@ margin-bottom: 100px;
 .seven{
   height: 200px;
   width: 200px;
-  margin-top:-500px;
+  margin-top:-200px;
 }
 .three{
   width: 600px;
@@ -256,7 +265,7 @@ margin-bottom: 100px;
 .nine{
   width: 200px;
   height: 200px;
-  margin-top: -500px;
+  margin-top: -200px;
   margin-right:-90px;
  
 }
@@ -266,5 +275,18 @@ margin-bottom: 100px;
 .hoverFlex {
   transition: transform 0.3s ease-in-out;
 }
+.donation{
+ margin-top: 50px;
+ padding-bottom: 80px;
+}
+/* Default styles for larger screens */
+.img-large {
+  display: block; /* Display the image by default */
+}
 
-
+/* Hide images on smaller screens */
+@media (max-width: 768px) {
+  .img-large {
+    display: none; /* Hide the image on screens with a width of 768 pixels or smaller */
+  }
+}
