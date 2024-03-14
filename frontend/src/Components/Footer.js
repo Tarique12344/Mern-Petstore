@@ -14,7 +14,7 @@ const Footer = () => {
         </Row>
         <Row  className='d-flex center-content justify-content-center'>
           <Col md={4} className="center-content">
-            &copy; AdeTarPat Enterprises
+            &copy; AdeParTar Enterprises
           </Col>
         </Row>
       </Container>

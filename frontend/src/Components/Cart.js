@@ -12,13 +12,18 @@ const Cart = () => {
 
   return (
     <div>
-      <h2>Your Cart</h2>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <h1 style={{ fontFamily: 'Arial', fontSize: '24px' }}>Your Cart:</h1>
+
       {state.cartItems.map((item) => (
         <Card key={item.id}>
           <Card.Img variant="top" 
           src={item.image} 
           alt={`Pet ${item.id}`} 
-          style={{ objectFit: 'cover', height: '200px', width: '10%' }}
+          style={{ objectFit: 'cover', height: '200px', width: '20%' }}
           />
           
           <Card.Body>
