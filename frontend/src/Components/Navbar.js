@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from './Carousel1_pics/logo.jpg';
 import cart2 from './Cart2.png';
 
+
 const NavigationBar = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const NavigationBar = () => {
   const checkAuthenticationStatus = async () => {
     try {
       // Example API endpoint for checking authentication status
-      const response = await fetch('/authController', {
+      const response = await fetch('/authController/checkAuthenticationStatus', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
