@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Carousel, Row, Col, Card, Button } from 'react-bootstrap';
 import _ from 'lodash';
 
-import { useCart } from './CartProviderfunc';
+import { useCart } from '../context/CartProviderfunc';
 
 const Storefront = () => {
   const { dispatch, state } = useCart();

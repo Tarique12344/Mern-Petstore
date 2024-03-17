@@ -1,7 +1,7 @@
 // Cart.js
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
-import { useCart } from './CartProviderfunc';
+import { useCart } from '../context/CartProviderfunc';
 
 const Cart = () => {
   const { state, dispatch } = useCart();
