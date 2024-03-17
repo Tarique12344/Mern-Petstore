@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import App from './App';
 import './index.css';
-import { CartProviderfunc } from './components/CartProvider';
+import { CartProviderfunc } from './components/CartProviderfunc';
 
 ReactDOM.render(
   <BrowserRouter>
