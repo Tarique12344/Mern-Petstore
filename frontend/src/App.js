@@ -1,16 +1,16 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Home from './components/Home';
-import About from './components/About';
-import Contact from './components/Contact';
-import Signup from './components/Signup';
-import Login from './components/Login';
-import StoreFront from './components/Storefront';
-import PetForm from './components/PetForm';
-import Footer from './components/Footer'
-import NavigationBar from './components/Navbar'
-import Cart from './components/Cart';
-import Donation from './components/Donation';
+import Home from './Components/Home';
+import About from './Components/About';
+import Contact from './Components/Contact';
+import Signup from './Components/Signup';
+import Login from './Components/Login';
+import StoreFront from './Components/Storefront';
+import PetForm from './Components/PetForm';
+import Footer from './Components/Footer'
+import NavigationBar from './Components/Navbar'
+import Cart from './Components/Cart';
+import Donation from './Components/Donation';
 
 const App = () => {
   return (
