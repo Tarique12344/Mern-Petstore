@@ -32,7 +32,7 @@ const PetForm = () => {
       setLoading(true);
       setErrorMessage('');
 
-      const response = await fetch('http://localhost:5000/storefront', {
+      const response = await fetch('https://mern-petstore-backend.onrender.com/storefront', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

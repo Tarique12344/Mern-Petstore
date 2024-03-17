@@ -15,7 +15,7 @@ const Storefront = () => {
   useEffect(() => {
     const fetchPets = async () => {
       try {
-        const response = await fetch('http://localhost:5000/storefront');
+        const response = await fetch('https://mern-petstore-backend.onrender.com/storefront');
         const data = await response.json();
 
         // Filter out pets without images
