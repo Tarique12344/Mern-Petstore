@@ -20,7 +20,7 @@ const cartReducer = (state, action) => {
   }
 };
 
-const CartProvider = ({ children }) => {
+const CartProviderfunc = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, { cartItems: [] });
 
   return (
@@ -38,4 +38,4 @@ const useCart = () => {
   return context;
 };
 
-export { CartProvider, useCart };
+export { CartProviderfunc, useCart };
