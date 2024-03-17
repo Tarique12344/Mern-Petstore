@@ -2,8 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Carousel, Row, Col, Card, Button } from 'react-bootstrap';
 import _ from 'lodash';
-import NavigationBar from './Navbar';
-import logo from './Carousel1_pics/logo.jpg';
+
 import { useCart } from './CartProvider';
 
 const Storefront = () => {
@@ -53,7 +52,6 @@ const Storefront = () => {
    
   return (
     <div>
-      <NavigationBar />
       <br/>
       <br/>
       <br/>

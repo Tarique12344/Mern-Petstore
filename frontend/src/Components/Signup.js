@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NavigationBar from './Navbar';
-import Footer from './Footer';
+
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -38,7 +37,6 @@ const Signup = () => {
 
   return (
     <div>
-      <NavigationBar />
       <br />
       <div className="container mt-5">
         <div className="row justify-content-center">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
-import NavigationBar from './Navbar';
+
 
 
 
@@ -15,7 +15,7 @@ const Donation = () => {
 
   return (
     <div>
-      <NavigationBar />
+
 
       <Container className='donation'>
                <p> Your donation to ADEPARTAR directly impacts lives in your community. We are able to shelter, feed, and give medical attention

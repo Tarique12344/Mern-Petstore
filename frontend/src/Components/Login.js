@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NavigationBar from './Navbar';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -45,7 +45,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <NavigationBar />
+
       <br />
       <div className="container mt-5">
         <div className="row justify-content-center">

@@ -1,5 +1,4 @@
 import React from 'react';
-import NavigationBar from './Navbar';
 import { Container, Row, Col, Carousel } from 'react-bootstrap';
 
 import pic1 from './Carousel1_pics/Playing_1.jpg';
