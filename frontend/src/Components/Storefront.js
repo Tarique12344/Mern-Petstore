@@ -53,7 +53,7 @@ const Storefront = () => {
               className="d-block w-100"
               src={pet.image}
               alt={`Slide ${pet._id}`}
-              style={{ maxHeight: '300px', objectFit: 'contain' }}
+              style={{ maxHeight: '300px', objectFit: 'cover', width: '100%' }}
             />
           </Carousel.Item>
         ))}
