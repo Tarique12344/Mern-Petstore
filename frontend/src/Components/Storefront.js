@@ -58,6 +58,9 @@ const Storefront = () => {
           </Carousel.Item>
         ))}
       </Carousel>
+      <hr>
+
+      </hr>
       
       {/* Notification display */}
       {notificationMessage && <div>{notificationMessage}</div>}
