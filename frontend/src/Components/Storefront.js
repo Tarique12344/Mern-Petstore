@@ -53,7 +53,7 @@ const Storefront = () => {
               className="d-block w-100"
               src={pet.image}
               alt={`Slide ${pet._id}`}
-              style={{ maxHeight: '300px', objectFit: 'cover', width: '100%' }}
+              style={{ maxHeight: '300px', objectFit: 'contain', width: '200pc' }}
             />
           </Carousel.Item>
         ))}
@@ -67,7 +67,7 @@ const Storefront = () => {
         {pets.map((pet) => (
           <Col key={pet._id} xs={12} sm={6} md={4} lg={3} className="mb-4">
             <Card style={{ height: '100%' }}>
-              <Card.Img variant="top" src={pet.image} alt={`Pet ${pet._id}`} style={{ objectFit: 'contain', height: '100px', width: '100px' }} />
+              <Card.Img variant="top" src={pet.image} alt={`Pet ${pet._id}`} style={{ objectFit: 'cover', height: '200px' }} />
               <Card.Body>
                 <Card.Title>{pet.name}</Card.Title>
                 <Card.Text>{`Breed: ${pet.breed}`}</Card.Text>
