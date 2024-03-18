@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NavigationBar from './Navbar';
-import Footer from './Footer';
+
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -12,7 +11,7 @@ const Signup = () => {
     event.preventDefault(); // Prevent the default form submission
 
     try {
-      const response = await fetch('http://localhost:5000/signup', {
+      const response = await fetch('https://mern-petstore-backend.onrender.com/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,7 +37,6 @@ const Signup = () => {
 
   return (
     <div>
-      <NavigationBar />
       <br />
       <div className="container mt-5">
         <div className="row justify-content-center">

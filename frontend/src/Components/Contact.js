@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import NavigationBar from './Navbar';  // Updated import
-import Footer from './Footer';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 

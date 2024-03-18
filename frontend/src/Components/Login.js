@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import NavigationBar from './Navbar';
+import { useNavigate, Link } from 'react-router-dom';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -14,7 +14,7 @@ const Login = () => {
       setLoading(true);
       setErrorMessage('');
 
-      const response = await fetch('http://localhost:5000/login', {
+      const response = await fetch('https://mern-petstore-backend.onrender.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <NavigationBar />
+
       <br />
       <div className="container mt-5">
         <div className="row justify-content-center">
@@ -84,7 +84,7 @@ const Login = () => {
                     </button>
                   </div>
                   <br />
-                  <p className='text-center'>No account? Sign up <a href='./signup'>Here!</a></p>
+                  <p className='text-center'>No account? Sign up <Link to='./signup'>Here!</Link></p>
                   {errorMessage && <p className="text-center mt-3" style={{ color: 'red' }}>{errorMessage}</p>}
                 </form>
               </div>
@@ -92,10 +92,9 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <div className="foot">
-        {/* Your footer content */}
+      
       </div>
-    </div>
+    
   );
 };
 

@@ -1,9 +1,6 @@
-// PetForm.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NavigationBar from './Navbar';
-import Footer from './Footer';
-
 
 const PetForm = () => {
   const [name, setName] = useState('');
@@ -11,7 +8,6 @@ const PetForm = () => {
   const [age, setAge] = useState('');
   const [imageURL, setImageURL] = useState('');
   const [breed, setBreed] = useState('');
-  const [category, setCategory] = useState('all'); // Default category is 'all'
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
@@ -25,14 +21,13 @@ const PetForm = () => {
       age,
       breed,
       image: imageURL,
-      category, // Include category when submitting
     };
 
     try {
       setLoading(true);
       setErrorMessage('');
 
-      const response = await fetch('http://localhost:5000/storefront', {
+      const response = await fetch('https://mern-petstore-backend.onrender.com/storefront', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -112,22 +107,6 @@ const PetForm = () => {
                       value={breed}
                       onChange={(e) => setBreed(e.target.value)}
                     />
-                  </div>
-                  <div className="mb-3">
-                    <label htmlFor="petCategory" className="form-label">
-                      Pet Category:
-                    </label>
-                    <select
-                      id="petCategory"
-                      className="form-control"
-                      value={category}
-                      onChange={(e) => setCategory(e.target.value)}
-                    >
-                      <option value="all">All</option>
-                      <option value="dog">Dog</option>
-                      <option value="cat">Cat</option>
-                      {/* Add more categories if needed */}
-                    </select>
                   </div>
                   <div className="mb-3">
                     <label htmlFor="petImage" className="form-label">
