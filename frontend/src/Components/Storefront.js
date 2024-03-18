@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Carousel, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, Carousel } from 'react-bootstrap';
 import _ from 'lodash';
 
 import { useCart } from '../context/CartProviderfunc';
@@ -29,9 +29,6 @@ const Storefront = () => {
     fetchPets();
   }, []);
 
-  // Shuffle and slice the pets for the Top Carousel
-  const shuffledAndSlicedTopPets = _.shuffle(pets).slice(0, 5);
-
   const handleAddToCart = (pet) => {
     const isItemInCart = state.cartItems.some(item => item.id === pet.id);
 
@@ -50,7 +47,7 @@ const Storefront = () => {
     <Container style={{ marginTop: '50px', paddingBottom: '80px', marginBottom: '20px' }}>
       {/* Top Carousel */}
       <Carousel interval={5000} style={{ maxHeight: '400px', overflow: 'hidden' }}>
-        {shuffledAndSlicedTopPets.map((pet) => (
+        {_.shuffle(pets).slice(0, 5).map((pet) => (
           <Carousel.Item key={pet._id}>
             <img
               className="d-block w-100 h-auto"
@@ -65,22 +62,22 @@ const Storefront = () => {
       {/* Notification display */}
       {notificationMessage && <div>{notificationMessage}</div>}
 
-      {/* Render pets */}
-      {pets.map((pet) => (
-        <Card key={pet._id} style={{ maxWidth: '14rem', margin: 'auto', marginBottom: '20px' }}>
-          <Card.Img variant="top" src={pet.image} alt={`Pet ${pet._id}`} style={{ objectFit: 'cover', height: '100px' }} />
-          <Card.Body className="d-flex flex-column ">
-            <Card.Title>{pet.name}</Card.Title>
-            <Card.Text>{`Breed: ${pet.breed}`}</Card.Text>
-            <Card.Text>{pet.age}</Card.Text>
-            <div className="mt-auto add">
-              <Button variant="success" className="add-to-cart-button" onClick={() => handleAddToCart(pet)}>
-                Add to Cart
-              </Button>
-            </div>
-          </Card.Body>
-        </Card>
-      ))}
+      {/* Pet Cards in Rows of Three */}
+      <Row xs={1} md={3} className="g-4">
+        {pets.map((pet) => (
+          <Col key={pet._id}>
+            <Card>
+              <Card.Img variant="top" src={pet.image} alt={`Pet ${pet._id}`} />
+              <Card.Body>
+                <Card.Title>{pet.name}</Card.Title>
+                <Card.Text>{`Breed: ${pet.breed}`}</Card.Text>
+                <Card.Text>{pet.age}</Card.Text>
+                <Button variant="success" onClick={() => handleAddToCart(pet)}>Add to Cart</Button>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
     </Container>
   );
 };
