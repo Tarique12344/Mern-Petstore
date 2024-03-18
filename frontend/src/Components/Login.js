@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 
 const Login = () => {
@@ -84,7 +84,7 @@ const Login = () => {
                     </button>
                   </div>
                   <br />
-                  <p className='text-center'>No account? Sign up <a href='./signup'>Here!</a></p>
+                  <p className='text-center'>No account? Sign up <Link to='./signup'>Here!</Link></p>
                   {errorMessage && <p className="text-center mt-3" style={{ color: 'red' }}>{errorMessage}</p>}
                 </form>
               </div>
