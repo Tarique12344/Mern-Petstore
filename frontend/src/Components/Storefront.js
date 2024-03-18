@@ -67,7 +67,7 @@ const Storefront = () => {
         {pets.map((pet) => (
           <Col key={pet._id} xs={12} sm={6} md={4} lg={3} className="mb-4">
             <Card style={{ height: '100%' }}>
-              <Card.Img variant="top" src={pet.image} alt={`Pet ${pet._id}`} style={{ objectFit: 'cover', height: '100px' }} />
+              <Card.Img variant="top" src={pet.image} alt={`Pet ${pet._id}`} style={{ objectFit: 'contain', height: '100px', width: '100px' }} />
               <Card.Body>
                 <Card.Title>{pet.name}</Card.Title>
                 <Card.Text>{`Breed: ${pet.breed}`}</Card.Text>
