@@ -62,24 +62,20 @@ const Storefront = () => {
       {/* Notification display */}
       {notificationMessage && <div>{notificationMessage}</div>}
 
-      {/* Pet Cards in Rows of Three */}
-      <Row xs={1} md={3} className="g-4">
-        {_.chunk(pets, 3).map((petRow, rowIndex) => (
-          <Row key={rowIndex} className="mb-4">
-            {petRow.map((pet) => (
-              <Col key={pet._id} className="mb-3">
-                <Card style={{ height: '100%' }}>
-                  <Card.Img variant="top" src={pet.image} alt={`Pet ${pet._id}`} style={{ objectFit: 'cover', height: '200px' }} />
-                  <Card.Body>
-                    <Card.Title>{pet.name}</Card.Title>
-                    <Card.Text>{`Breed: ${pet.breed}`}</Card.Text>
-                    <Card.Text>{pet.age}</Card.Text>
-                    <Button variant="success" onClick={() => handleAddToCart(pet)}>Add to Cart</Button>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
+      {/* Pet Cards */}
+      <Row className="mt-4">
+        {pets.map((pet) => (
+          <Col key={pet._id} xs={12} sm={6} md={4} lg={3} className="mb-4">
+            <Card style={{ height: '100%' }}>
+              <Card.Img variant="top" src={pet.image} alt={`Pet ${pet._id}`} style={{ objectFit: 'cover', height: '200px' }} />
+              <Card.Body>
+                <Card.Title>{pet.name}</Card.Title>
+                <Card.Text>{`Breed: ${pet.breed}`}</Card.Text>
+                <Card.Text>{pet.age}</Card.Text>
+                <Button variant="success" onClick={() => handleAddToCart(pet)}>Add to Cart</Button>
+              </Card.Body>
+            </Card>
+          </Col>
         ))}
       </Row>
     </Container>
