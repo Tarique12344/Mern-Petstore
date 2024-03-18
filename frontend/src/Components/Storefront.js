@@ -71,6 +71,7 @@ const Storefront = () => {
               <Card.Body>
                 <Card.Title>{pet.name}</Card.Title>
                 <Card.Text>{`Breed: ${pet.breed}`}</Card.Text>
+                <Card.Text>{pet.description}</Card.Text>
                 <Card.Text>{pet.age} year old</Card.Text>
                 <Button variant="success" onClick={() => handleAddToCart(pet)}>Add to Cart</Button>
               </Card.Body>
