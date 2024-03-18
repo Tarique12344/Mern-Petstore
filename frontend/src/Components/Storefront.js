@@ -67,9 +67,9 @@ const Storefront = () => {
         {_.chunk(pets, 3).map((petRow, rowIndex) => (
           <Row key={rowIndex} className="mb-4">
             {petRow.map((pet) => (
-              <Col key={pet._id}>
-                <Card>
-                  <Card.Img variant="top" src={pet.image} alt={`Pet ${pet._id}`} />
+              <Col key={pet._id} className="mb-3">
+                <Card style={{ height: '100%' }}>
+                  <Card.Img variant="top" src={pet.image} alt={`Pet ${pet._id}`} style={{ objectFit: 'cover', height: '200px' }} />
                   <Card.Body>
                     <Card.Title>{pet.name}</Card.Title>
                     <Card.Text>{`Breed: ${pet.breed}`}</Card.Text>
