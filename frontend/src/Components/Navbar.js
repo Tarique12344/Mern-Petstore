@@ -23,7 +23,7 @@ const NavigationBar = () => {
   const checkAuthenticationStatus = async () => {
     try {
       // Example API endpoint for checking authentication status
-      const response = await fetch('/authController/checkAuthenticationStatus', {
+      const response = await fetch('/authController', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
