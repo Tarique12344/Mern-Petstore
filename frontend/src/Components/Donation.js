@@ -2,27 +2,21 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 
 
-
-
 const Donation = () => {
   const [donationAmount, setDonationAmount] = useState('');
 
   const handleDonate = () => {
     // Implement your donation submission logic here
     console.log(`Donating ${donationAmount}`);
-    // Optionally, you can redirect or show a thank you message after donation
+    // Call backend API to process donation
+    // Generate receipt and send it to the user
   };
 
   return (
     <div>
-
-
+      <NavigationBar />
       <Container className='donation'>
-               <p> Your donation to ADEPARTAR directly impacts lives in your community. We are able to shelter, feed, and give medical attention
-                to more than five billion animals per year because of your generous support. Your donation goes directly to the operation
-                of our facility and improves our community by removing stray and unwanted animals from the street so they can be
-                spayed or neutered and given to loving homes. This greatly reduces suffering and starvation of animals who are
-                unable to choose their circumstances. THANK YOU for your generosity!</p>
+        <p>Your donation to ADEPARTAR directly impacts lives in your community. We are able to shelter, feed, and give medical attention to more than five billion animals per year because of your generous support. Your donation goes directly to the operation of our facility and improves our community by removing stray and unwanted animals from the street so they can be spayed or neutered and given to loving homes. This greatly reduces suffering and starvation of animals who are unable to choose their circumstances. THANK YOU for your generosity!</p>
         {/* Donation Section */}
         <Row className="justify-content-center">
           <Col md={8}>
@@ -45,13 +39,10 @@ const Donation = () => {
               </Card.Body>
             </Card>
             <div className="mt-4">
-              
-            </div>
+           </div>
           </Col>
         </Row>
       </Container>
-
-
     </div>
   );
 };
