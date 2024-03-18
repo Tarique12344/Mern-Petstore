@@ -92,10 +92,9 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <div className="foot">
-        {/* Your footer content */}
+      
       </div>
-    </div>
+    
   );
 };
 
