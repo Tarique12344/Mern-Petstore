@@ -50,10 +50,10 @@ const Storefront = () => {
         {_.shuffle(pets).slice(0, 5).map((pet) => (
           <Carousel.Item key={pet._id} style={{ height: '300px' }}>
             <img
-              className="d-block w-100 h-100"
+              className="d-block w-100"
               src={pet.image}
               alt={`Slide ${pet._id}`}
-              style={{ objectFit: 'cover' }}
+              style={{ maxHeight: '300px', objectFit: 'contain' }}
             />
           </Carousel.Item>
         ))}
