@@ -64,18 +64,22 @@ const Storefront = () => {
 
       {/* Pet Cards in Rows of Three */}
       <Row xs={1} md={3} className="g-4">
-        {pets.map((pet) => (
-          <Col key={pet._id}>
-            <Card>
-              <Card.Img variant="top" src={pet.image} alt={`Pet ${pet._id}`} />
-              <Card.Body>
-                <Card.Title>{pet.name}</Card.Title>
-                <Card.Text>{`Breed: ${pet.breed}`}</Card.Text>
-                <Card.Text>{pet.age}</Card.Text>
-                <Button variant="success" onClick={() => handleAddToCart(pet)}>Add to Cart</Button>
-              </Card.Body>
-            </Card>
-          </Col>
+        {_.chunk(pets, 3).map((petRow, rowIndex) => (
+          <Row key={rowIndex} className="mb-4">
+            {petRow.map((pet) => (
+              <Col key={pet._id}>
+                <Card>
+                  <Card.Img variant="top" src={pet.image} alt={`Pet ${pet._id}`} />
+                  <Card.Body>
+                    <Card.Title>{pet.name}</Card.Title>
+                    <Card.Text>{`Breed: ${pet.breed}`}</Card.Text>
+                    <Card.Text>{pet.age}</Card.Text>
+                    <Button variant="success" onClick={() => handleAddToCart(pet)}>Add to Cart</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
         ))}
       </Row>
     </Container>
