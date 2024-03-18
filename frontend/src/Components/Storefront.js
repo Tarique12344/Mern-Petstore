@@ -46,21 +46,18 @@ const Storefront = () => {
   return (
     <Container style={{ marginTop: '50px', paddingBottom: '80px', marginBottom: '20px' }}>
       {/* Top Carousel */}
-      <Carousel interval={5000} style={{ maxHeight: '400px', overflow: 'hidden' }}>
+      <Carousel interval={5000} style={{ overflow: 'hidden' }}>
         {_.shuffle(pets).slice(0, 5).map((pet) => (
-          <Carousel.Item key={pet._id}>
+          <Carousel.Item key={pet._id} style={{ height: '400px' }}>
             <img
-              className="d-block w-100 h-auto"
+              className="d-block w-100 h-100"
               src={pet.image}
               alt={`Slide ${pet._id}`}
-              style={{ objectFit: 'contain', maxHeight: '400px', boxShadow: '0 4px 8px' }}
+              style={{ objectFit: 'cover' }}
             />
           </Carousel.Item>
         ))}
       </Carousel>
-      <hr>
-
-      </hr>
       
       {/* Notification display */}
       {notificationMessage && <div>{notificationMessage}</div>}
@@ -73,9 +70,8 @@ const Storefront = () => {
               <Card.Img variant="top" src={pet.image} alt={`Pet ${pet._id}`} style={{ objectFit: 'cover', height: '200px' }} />
               <Card.Body>
                 <Card.Title>{pet.name}</Card.Title>
-                <Card.Text>{pet.description}</Card.Text>
                 <Card.Text>{`Breed: ${pet.breed}`}</Card.Text>
-                <Card.Text>{pet.age} year old</Card.Text>
+                <Card.Text>{pet.age}</Card.Text>
                 <Button variant="success" onClick={() => handleAddToCart(pet)}>Add to Cart</Button>
               </Card.Body>
             </Card>
