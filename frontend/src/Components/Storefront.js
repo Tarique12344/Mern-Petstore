@@ -48,7 +48,7 @@ const Storefront = () => {
       {/* Top Carousel */}
       <Carousel interval={5000} style={{ overflow: 'hidden' }}>
         {_.shuffle(pets).slice(0, 5).map((pet) => (
-          <Carousel.Item key={pet._id} style={{ height: '30vh' }}>
+          <Carousel.Item key={pet._id} style={{ height: '100vh' }}>
             <img
               className="d-block w-100"
               src={pet.image}
