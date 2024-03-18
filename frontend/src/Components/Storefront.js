@@ -73,7 +73,7 @@ const Storefront = () => {
               <Card.Img variant="top" src={pet.image} alt={`Pet ${pet._id}`} style={{ objectFit: 'cover', height: '200px' }} />
               <Card.Body>
                 <Card.Title>{pet.name}</Card.Title>
-                <Card.Title>{pet.description}</Card.Title>
+                <Card.Text>{pet.description}</Card.Text>
                 <Card.Text>{`Breed: ${pet.breed}`}</Card.Text>
                 <Card.Text>{pet.age} year old</Card.Text>
                 <Button variant="success" onClick={() => handleAddToCart(pet)}>Add to Cart</Button>
