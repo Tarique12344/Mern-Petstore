@@ -17,13 +17,13 @@ const NavigationBar = () => {
     // Redirect the user to the home page or login page
     navigate.push('/');
   };
-
+  
   // Example: You can check the authentication status from your server.
   // In a real application, this would involve making an API request.
   const checkAuthenticationStatus = async () => {
     try {
       // Example API endpoint for checking authentication status
-      const response = await fetch('/authController/checkAuthenticationStatus', {
+      const response = await fetch('/authController', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -31,16 +31,28 @@ const NavigationBar = () => {
           // 'Authorization': `Bearer ${yourAuthToken}`
         },
       });
-
+  
+      // Check if the response is not okay
+      if (!response.ok) {
+        throw new Error('Failed to fetch authentication status');
+      }
+  
+      // Parse the JSON response
       const data = await response.json();
-
-      if (response.ok) {
+  
+      // Check if the isAuthenticated field is present in the response
+      if (data.isAuthenticated !== undefined) {
+        // Update the authentication status state based on the response
         setIsAuthenticated(data.isAuthenticated);
+      } else {
+        throw new Error('Invalid authentication status response');
       }
     } catch (error) {
       console.error('Error checking authentication status:', error);
+      // Handle error (e.g., show error message to the user)
     }
   };
+  
 
   // Call the authentication check on component mount
   useEffect(() => {
