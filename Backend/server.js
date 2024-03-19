@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const petRoutes = require('./routes/petRoutes');
 const crypto = require('crypto');
+const authController = require('./controllers/authController');
 
 const dotenv = require('dotenv');
 
@@ -33,6 +34,7 @@ mongoose
 // routes
 app.use(petRoutes);
 app.use(authRoutes);
+app.get('/check-authentication', authController.checkAuthenticationStatus);
 
 // Generate a random secret key with 32 bytes and convert it to a hexadecimal string
 const secretKey = process.env.SECRET_KEY || crypto.randomBytes(32).toString('hex');
