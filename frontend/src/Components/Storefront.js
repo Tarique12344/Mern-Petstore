@@ -22,7 +22,8 @@ const Storefront = () => {
     fetchPets();
   }, []);
   const handleAddToCart = (pet) => {
-    const isItemInCart = state.cartItems.some(item => item.id === pet.id);
+    const isItemInCart = state.cartItems.some(item => item.id === pet._id);
+    
     if (isItemInCart) {
       alert('Your pet is already in the cart.');
     } else {
