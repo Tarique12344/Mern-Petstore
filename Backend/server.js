@@ -40,7 +40,7 @@ console.log('Secret Key:', secretKey);
 console.log('Running on port:', process.env.PORT || 5000);
 
 // API Key
-const API_KEY = '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';
+const API_KEY = process.env.API_KEY;
 
 // Chatbot endpoint
 app.post('/completions', async (req, res) => {
