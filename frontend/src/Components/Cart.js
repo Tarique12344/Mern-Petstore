@@ -39,7 +39,9 @@ const Cart = () => {
     setTimeout(() => {
       setShowProcessingMessage(false);
       setShowCheckoutForm(false); // Hide the checkout form after 10 seconds
-      dispatch({ type: 'CLEAR_CART' });
+      state.cartItems.forEach(item => {
+      dispatch({ type: 'REMOVE_FROM_CART', payload: item });
+      });
     }, 5000);
   };
 
@@ -130,7 +132,7 @@ const Cart = () => {
             <Form.Group controlId="formEmailAddress">
               <Form.Label>Email Address:</Form.Label>
               <Form.Control
-                type="text"
+                type="email"
                 name="emailAddress"
                 value={customerInfo.emailAddress}
                 onChange={handleChangeCustomerInfo}
@@ -139,7 +141,7 @@ const Cart = () => {
             <Form.Group controlId="formPhoneNumber">
               <Form.Label>Phone Number:</Form.Label>
               <Form.Control
-                type="text"
+                type="number"
                 name="phoneNumber"
                 value={customerInfo.phoneNumber}
                 onChange={handleChangeCustomerInfo}
