@@ -11,6 +11,7 @@ import Footer from './Components/Footer'
 import NavigationBar from './Components/Navbar'
 import Cart from './Components/Cart';
 import Donation from './Components/Donation';
+import ChatAi  from './Components/ChatAI'
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/petform" element={<PetForm />} />
         <Route path="/donation" element={<Donation />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/chatai" element={<ChatAi />} />
       </Routes>
       <br />
       <br />
