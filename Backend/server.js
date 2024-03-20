@@ -12,7 +12,7 @@ dotenv.config();
 
 const app = express();
 
-require('dotenv').config();
+
 
 // Middleware
 app.use(express.static('public'));
