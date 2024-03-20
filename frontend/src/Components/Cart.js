@@ -40,9 +40,9 @@ const Cart = () => {
       setShowProcessingMessage(false);
       setShowCheckoutForm(false); // Hide the checkout form after 10 seconds
       dispatch({ type: 'CLEAR_CART' });
-    }, 10000);
+    }, 5000);
   };
-  
+
   return (
     <div>
       <h1 style={{ fontFamily: 'Arial', fontSize: '24px' }}>Your Cart:</h1>
@@ -159,7 +159,7 @@ const Cart = () => {
       </Modal>
 
       <Modal show={showProcessingMessage} onHide={() => setShowProcessingMessage(false)}>
-        <Modal.Body>Your order is processing and we will contact you when your pet is ready for pickup</Modal.Body>
+        <Modal.Body style={{ color: 'black'}}>Your order is processing and we will contact you when your pet is ready for pickup</Modal.Body>
       </Modal>
     </div>
   );
