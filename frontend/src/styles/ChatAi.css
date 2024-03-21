@@ -18,13 +18,14 @@
 }
 
 .side-bar{
-    background-color: #ad6b07;
+    background-color:  #826846;
     height: 100vh;
     width: 244px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-top: 68px;
+    color: white
 
 }
 
@@ -34,6 +35,7 @@ button{
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
+    color: white
     
 }
 .main{
@@ -57,12 +59,12 @@ nav{
 .history{
     padding: 10px;
     margin: 10px;
-    height: 100px;
+    height: 1000px;
 }
 
 .history li {
     list-style-type: none;
-    padding: 15 px 0;
+    padding: 15px 0;
     cursor: pointer;
 } 
 
