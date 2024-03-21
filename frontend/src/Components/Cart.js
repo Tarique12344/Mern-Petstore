@@ -38,7 +38,7 @@ const Cart = () => {
     setShowProcessingMessage(true);
     setTimeout(() => {
       setShowProcessingMessage(false);
-      setShowCheckoutForm(false); // Hide the checkout form after 10 seconds
+      setShowCheckoutForm(false); // Hide the checkout form after 5 seconds
       state.cartItems.forEach(item => {
       dispatch({ type: 'REMOVE_FROM_CART', payload: item });
       });
