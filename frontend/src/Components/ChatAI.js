@@ -2,52 +2,48 @@ import '../styles/ChatAi.css';
 import { useState, useEffect } from 'react';
 
 const ChatAi = () => {
-    const [value, setValue] = useState(null);
-    const [message, setMessage] = useState(null);
+    const [value, setValue] = useState('');
+    const [message, setMessage] = useState('');
     const [previousChats, setPreviousChats] = useState([]);
     const [currentTitle, setCurrentTitle] = useState(null);
 
     const createNewChat = () => {
-        setMessage(null)
-        setValue('')
-        setCurrentTitle(null)
-    }
+        setMessage('');
+        setValue('');
+        setCurrentTitle(null);
+    };
 
     const handleClick = (uniqueTitle) => {
-        setCurrentTitle(uniqueTitle)
-        setMessage(null)
-        setValue('')
-    }
+        setCurrentTitle(uniqueTitle);
+        setMessage('');
+        setValue('');
+    };
 
     const getMessages = async () => {
         const options = {
             method: 'POST',
-            body : JSON.stringify ({
-                message: value
-            }),
+            body: JSON.stringify({ message: value }),
             headers: {
-                'Content-Type':  "application/json"
+                'Content-Type': 'application/json'
             }
-        }
+        };
 
-        try{
-         const response =  await fetch('https://mern-petstore-backend.onrender.com/completions', options)
-         const data = await response.json()
-         setMessage(data.choices[0].message)
+        try {
+            const response = await fetch('https://mern-petstore-backend.onrender.com/completions', options);
+            const data = await response.json();
+            setMessage(data.choices[0].message);
         } catch (error) {
-            console.error(error)
-
+            console.error(error);
         }
-    }
+    };
 
-    useEffect (() => {
-        console.log(currentTitle, value, message)
-        if(!currentTitle && value && message) {
-            setCurrentTitle(value)
+    useEffect(() => {
+        if (!currentTitle && value && message) {
+            setCurrentTitle(value);
         }
-        if ( currentTitle && value && message) {
-            setPreviousChats(prevChats =>(
-                [...prevChats, 
+        if (currentTitle && value && message) {
+            setPreviousChats(prevChats => ([
+                ...prevChats,
                 {
                     title: currentTitle,
                     role: 'user',
@@ -57,19 +53,14 @@ const ChatAi = () => {
                     title: currentTitle,
                     role: message.role,
                     content: message.content
-
                 }
-             ]
-            ))
+            ]));
         }
-    }, [message, currentTitle, value])
+    }, [message, currentTitle, value]);
 
+    const currentChat = previousChats.filter(chat => chat.title === currentTitle);
+    const uniqueTitles = Array.from(new Set(previousChats.map(chat => chat.title)));
 
-   const currentChat = previousChats.filter(previousChat => previousChat.title === currentTitle)
- const uniqueTitles = Array.from(new Set(previousChats.map(previousChat => previousChat.title)))
- console.log(uniqueTitles )
-
- console.log(message)
     return (
         <div className='chatai'>
             <section className='side-bar'>
