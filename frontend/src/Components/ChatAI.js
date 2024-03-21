@@ -23,20 +23,24 @@ const ChatAi = () => {
         const options = {
             method: 'POST',
             body: JSON.stringify({ message: value }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
+            headers: { 'Content-Type': 'application/json' }
         };
-
+    
         try {
             const response = await fetch('https://mern-petstore-backend.onrender.com/completions', options);
             const data = await response.json();
-            setMessage(data.choices[0].message);
+            if (data.choices && data.choices.length > 0) {
+                setMessage(data.choices[0].message);
+            } else {
+                // Handle the case where no choices are returned
+                console.error('No choices found in the response data');
+                setMessage(null); // Reset message state or handle accordingly
+            }
         } catch (error) {
             console.error(error);
         }
     };
-
+    
     useEffect(() => {
         if (!currentTitle && value && message) {
             setCurrentTitle(value);
@@ -87,7 +91,7 @@ const ChatAi = () => {
                 <div className='bottom-section'>
                     <div className='input-container'>
                         <input value={value} onChange={(e) => setValue(e.target.value)} />
-                        <div id='submit' onClick={getMessages}>></div>
+                        <div id='submit' onClick={getMessages}></div>
                         <p className='info'>
                             Chat GPT, Free Research Preview.
                             Our goal is to make Ai systems more natural and safe to interact with.
