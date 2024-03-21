@@ -22,24 +22,28 @@ const ChatAi = () => {
     const getMessages = async () => {
         const options = {
             method: 'POST',
-            body: JSON.stringify({
-                message: value
-            }),
+            body: JSON.stringify({ message: value }),
             headers: {
-                'Content-Type': "application/json"
+                'Content-Type': 'application/json'
             }
-        }
-
+        };
+    
         try {
-            const response = await fetch('https://mern-petstore-backend.onrender.com/completions', options)
-            const data = await response.json()
-            setMessage(data.choices[0].message)
+            const response = await fetch('https://mern-petstore-backend.onrender.com/completions', options);
+            const data = await response.json();
+    
+            if (data.choices && data.choices.length > 0) {
+                setMessage(data.choices[0].message);
+            } else {
+                console.error('No choices found in the response data');
+                setMessage('');
+            }
         } catch (error) {
-            console.error(error)
-
+            console.error('Error fetching or parsing data:', error);
+            setMessage('');
         }
-    }
-
+    };
+    
     useEffect(() => {
         console.log(currentTitle, value, message)
         if (!currentTitle && value && message) {
