@@ -2,52 +2,52 @@ import '../styles/ChatAi.css';
 import { useState, useEffect } from 'react';
 
 const ChatAi = () => {
-    const [value, setValue] = useState('');
-    const [message, setMessage] = useState('');
+    const [value, setValue] = useState(null);
+    const [message, setMessage] = useState(null);
     const [previousChats, setPreviousChats] = useState([]);
     const [currentTitle, setCurrentTitle] = useState(null);
 
     const createNewChat = () => {
-        setMessage('');
-        setValue('');
-        setCurrentTitle(null);
-    };
+        setMessage(null)
+        setValue('')
+        setCurrentTitle(null)
+    }
 
     const handleClick = (uniqueTitle) => {
-        setCurrentTitle(uniqueTitle);
-        setMessage('');
-        setValue('');
-    };
+        setCurrentTitle(uniqueTitle)
+        setMessage(null)
+        setValue('')
+    }
 
     const getMessages = async () => {
         const options = {
             method: 'POST',
-            body: JSON.stringify({ message: value }),
-            headers: { 'Content-Type': 'application/json' }
-        };
-    
-        try {
-            const response = await fetch('https://mern-petstore-backend.onrender.com/completions', options);
-            const data = await response.json();
-            if (data.choices && data.choices.length > 0) {
-                setMessage(data.choices[0].message);
-            } else {
-                // Handle the case where no choices are returned
-                console.error('No choices found in the response data');
-                setMessage(null); // Reset message state or handle accordingly
+            body: JSON.stringify({
+                message: value
+            }),
+            headers: {
+                'Content-Type': "application/json"
             }
-        } catch (error) {
-            console.error(error);
         }
-    };
-    
+
+        try {
+            const response = await fetch('https://mern-petstore-backend.onrender.com/completions', options)
+            const data = await response.json()
+            setMessage(data.choices[0].message)
+        } catch (error) {
+            console.error(error)
+
+        }
+    }
+
     useEffect(() => {
+        console.log(currentTitle, value, message)
         if (!currentTitle && value && message) {
-            setCurrentTitle(value);
+            setCurrentTitle(value)
         }
         if (currentTitle && value && message) {
-            setPreviousChats(prevChats => ([
-                ...prevChats,
+            setPreviousChats(prevChats => (
+                [...prevChats,
                 {
                     title: currentTitle,
                     role: 'user',
@@ -57,13 +57,18 @@ const ChatAi = () => {
                     title: currentTitle,
                     role: message.role,
                     content: message.content
-                }
-            ]));
-        }
-    }, [message, currentTitle, value]);
 
-    const currentChat = previousChats.filter(chat => chat.title === currentTitle);
-    const uniqueTitles = Array.from(new Set(previousChats.map(chat => chat.title)));
+                }
+                ]
+            ))
+        }
+    }, [message, currentTitle])
+
+
+    const currentChat = previousChats.filter(previousChat => previousChat.title === currentTitle)
+    const uniqueTitles = Array.from(new Set(previousChats.map(previousChat => previousChat.title)))
+    console.log(uniqueTitles)
+
 
     return (
         <div className='chatai'>
@@ -91,13 +96,14 @@ const ChatAi = () => {
                 <div className='bottom-section'>
                     <div className='input-container'>
                         <input value={value} onChange={(e) => setValue(e.target.value)} />
-                        <div id='submit' onClick={getMessages}>Click</div>
+                        <button id='submit' onClick={getMessages}>Submit</button>
                         <p className='info'>
                             Chat GPT, Free Research Preview.
                             Our goal is to make Ai systems more natural and safe to interact with.
                             Your feedback will help us improve.
                         </p>
                     </div>
+
                 </div>
             </section>
         </div>
