@@ -42,7 +42,7 @@ console.log('Secret Key:', secretKey);
 console.log('Running on port:', process.env.PORT || 5000);
 
 // API Key
-const API_KEY = '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'
+const API_KEY = process.env.API
 
 app.post('/completions', async (req, res) => {
     const options = {
