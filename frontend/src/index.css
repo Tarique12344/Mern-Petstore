@@ -81,7 +81,7 @@ code {
   margin-top: 30px;
   margin-bottom: 40px;
 }
-.login{
+.login {
   border-color: #5F8246;
   border-top: yellowgreen;
   border-bottom: yellowgreen;
@@ -216,59 +216,53 @@ margin-bottom: 100px;
   width: 200px;
   height: 200px;
 }
-.eight{
-  height: 200px;
-  margin-top: -200px;
 
-}
 .six{
   height: 200px;
   width: 250px;
   margin-left: -40px;
 }
-.seven{
-  height: 200px;
-  width: 200px;
-  margin-top:-200px;
-}
+
 .three{
   width: 600px;
+  margin-top: -700px;
 }
 .four{
   width: 600px;
 }
-.one{
+.container {
+  display: flex;
+  justify-content: flex-end; /* Align items to the end (right) of the container */
+}
+.one {
   width: 200px;
   height: 200px;
-  margin-left: -10px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px; /* Add space between the photos */
+  margin-left: -300px;
+  margin-top: -360px;
+
 }
-.two{
+
+.too {
   width: 200px;
   height: 200px;
-  margin: 20px;
-  margin-right:80px;
-  margin-top:10px;
+  display: flex;
+  flex-direction: column;
+  margin-top: -490px; /* Move the second picture up */
+  margin-left: -520px;
+  margin-bottom: 20px; /* Add space between the second and third 
 }
-.thee{
-  width: 200px;
-  margin-right: 10px;
-}
-.fur{
-  height:200px;
-  width: 200px;
-  margin-right: 40px;
-}
-.five{
+
+.thee {
+  width: 300px;
   height: 200px;
-  margin-right:50px;
+  margin-top: 100px; /* Move the third picture up */
+  float: left;
+  margin-left: -50px;
 }
-.nine{
-  width: 200px;
-  height: 200px;
-  margin-top: -200px;
-  margin-right:-90px;
- 
-}
+
 .contact{
   font-size: xx-large;
 }

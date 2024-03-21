@@ -1,0 +1,141 @@
+/* *{
+    color: white;
+    font-family: sans-serif;
+
+} */
+
+/* body {
+    margin: 0px;
+    padding: 0px;
+    margin-right: 300px
+
+} */
+
+.chatai{
+   background-color: #5F8246;
+   display:flex;
+
+}
+
+.side-bar{
+    background-color: #ad6b07;
+    height: 100vh;
+    width: 244px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 68px;
+
+}
+
+button{
+    border: solid 0.5px rgba (255, 255 ,255. 0.5);
+    background-color: transparent;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    
+}
+.main{
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    margin-top: 99px;
+
+}
+
+nav{
+    border-top: solid 0.5px rgba (255, 255 ,255. 0.5);
+    padding: 0px;
+    margin: 0px;
+}
+
+.history{
+    padding: 10px;
+    margin: 10px;
+    height: 100px;
+}
+
+.history li {
+    list-style-type: none;
+    padding: 15 px 0;
+    cursor: pointer;
+} 
+
+.info{
+    color: rgba(3, 0, 0, 0.5);
+    font-size: 11px;
+    padding: 10px
+}
+.bottom-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container{
+    position: relative;
+    width: 100%;
+    max-width: 650px;   
+}
+
+input{
+    width:107%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 12px 15px;
+    border-radius: 5px;
+    box-shadow: rgba(0,0,0,0,0.05) 0 54px 55px
+    rgba(0,0,0,0,0.05) 0 -12px 30px
+    rgba(0,0,0,0,0.05) 0 4px 6px
+    rgba(0,0,0,0,0.05) 0 12px 3px
+    rgba(0,0,0,0,0.05) 0 -3px 5px;
+    color: black ;
+    font-size: 20px;
+    
+}
+
+input:focus{
+    outline: none;
+}
+
+#submit {
+    position: absolute;
+    bottom: 70px;
+    right: -10px;
+    cursor: pointer;
+    color: black;
+    font-size: 35px
+}
+
+
+.feed{
+   
+    width: 100%;
+    padding: 0;
+
+}
+
+.feed li {
+    display: flex;
+    background-color:#965a0c4d;
+    width: 100%;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.feed p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    text-align: left;
+}
+
+.feed p.role{
+    min-width: 100px;
+}

@@ -1,7 +1,5 @@
 import React from 'react';
-import NavigationBar from './Navbar';
-import Footer from './Footer';
-import logo from './Carousel1_pics/logo.jpg';
+
 
 const About = () => {
   return (
