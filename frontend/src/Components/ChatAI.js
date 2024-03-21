@@ -22,14 +22,28 @@ const ChatAi = () => {
     const getMessages = async () => {
         const options = {
             method: 'POST',
-            body: JSON.stringify({ message: value }),
-            headers: { 'Content-Type': 'application/json' }
+            body: JSON.stringify({ prompt: value, max_tokens: 100 }),
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer YOUR_OPENAI_API_KEY' // Replace 'YOUR_OPENAI_API_KEY' with your actual API key
+            }
         };
 
         try {
-            const response = await fetch('https://api.openai.com/v1/chat/completions', options);
+            const response = await fetch('https://api.openai.com/v1/completions', options);
+            if (!response.ok) {
+                throw new Error('Failed to fetch messages');
+            }
             const data = await response.json();
-            setMessage(data.choices[0].message);
+
+            // Check if data.choices exists and has elements
+            if (data.choices && data.choices.length > 0) {
+                setMessage(data.choices[0].message);
+            } else {
+                // Handle the case when data.choices is empty or undefined
+                console.error('No choices found in the response data');
+                setMessage(null); // Reset message state
+            }
         } catch (error) {
             console.error(error);
         }
@@ -46,7 +60,7 @@ const ChatAi = () => {
                 { title: currentTitle, role: message.role, content: message.content }
             ]));
         }
-    }, [message, currentTitle, value]);
+    }, [message, currentTitle]);
 
     const currentChat = previousChats.filter(chat => chat.title === currentTitle);
     const uniqueTitles = Array.from(new Set(previousChats.map(chat => chat.title)));
