@@ -91,7 +91,7 @@ const ChatAi = () => {
                 <div className='bottom-section'>
                     <div className='input-container'>
                         <input value={value} onChange={(e) => setValue(e.target.value)} />
-                        <div id='submit' onClick={getMessages}></div>
+                        <div id='submit' onClick={getMessages}>Click</div>
                         <p className='info'>
                             Chat GPT, Free Research Preview.
                             Our goal is to make Ai systems more natural and safe to interact with.
