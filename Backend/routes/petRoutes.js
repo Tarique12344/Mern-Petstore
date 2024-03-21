@@ -15,7 +15,6 @@ router.post('/storefront', async (req, res) => {
       breed,
       age,
       image,
-      category,
       id
     });
 

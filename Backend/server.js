@@ -55,7 +55,7 @@ app.post('/completions', async (req, res) => {
     };
 
     try {
-      const response = await fetch('https://api.openai.com/v1/completions', options);
+      const response = await fetch('https://api.openai.com/v1/chat/completions', options);
       const data = await response.json();
       res.send(data);
     } catch (error) {
