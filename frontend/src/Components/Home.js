@@ -51,7 +51,7 @@ const Home = () => {
         </Container>
         <Row className="mt-5 justify-content-around">
               {/* Left photos */}
-              <Col md={4} className="d-flex flex-column align-items-center mt-3">
+              <Col md={2} className="d-flex flex-column align-items-center mt-3">
                 <img src={pic6} alt="Static Photo 1" className="img-fluid mb-3 one" />
                 <img src={pic7} alt="Static Photo 2" className="img-fluid mb-3 too" />
                 <img src={pic8} alt="Static Photo 3" className="img-fluid mb-3 thee" />
