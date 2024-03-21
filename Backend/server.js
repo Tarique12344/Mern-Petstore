@@ -42,30 +42,28 @@ console.log('Secret Key:', secretKey);
 console.log('Running on port:', process.env.PORT || 5000);
 
 // API Key
-const API_KEY = process.env.API_KEY;
+const API_KEY = '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'
 
-app.post('/getMessages', async (req, res) => {
-  const { prompt } = req.body;
-  const apiKey = 'YOUR_OPENAI_API_KEY'; // Replace with your actual OpenAI API key
-
-  const options = {
-      method: 'POST',
-      body: JSON.stringify({ prompt, max_tokens: 100 }),
+app.post('/completions', async (req, res) => {
+    const options = {
+      method: "POST",
       headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`
-      }
-  };
+        "Authorization": `Bearer ${API_KEY}`,
+        "Content-Type": 'application/json'
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: [{ role: 'user', content: req.body.message}],
+        max_tokens: 100,
+      })
 
-  try {
-      const response = await fetch('https://api.openai.com/v1/chat/completions', options);
-      const data = await response.json();
-      
-      // You can process the response data as needed...
-      res.json(data);
-  } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'An error occurred' });
-  }
-});
-module.exports = app;
+    }
+    try{
+     
+      const response = await fetch('https://api.openai.com/v1/chat/completions', options)
+      const data = await response.json()
+      res.send(data)
+    } catch (error) {
+      console.error(error)
+    }
+})

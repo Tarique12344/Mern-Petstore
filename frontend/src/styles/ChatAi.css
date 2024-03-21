@@ -59,12 +59,12 @@ nav{
 .history{
     padding: 10px;
     margin: 10px;
-    height: 100px;
+    height: 1000px;
 }
 
 .history li {
     list-style-type: none;
-    padding: 15 px 0;
+    padding: 15px 0;
     cursor: pointer;
 } 
 

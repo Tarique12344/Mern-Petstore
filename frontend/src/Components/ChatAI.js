@@ -1,70 +1,75 @@
 import '../styles/ChatAi.css';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const ChatAi = () => {
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState(null);
     const [message, setMessage] = useState(null);
     const [previousChats, setPreviousChats] = useState([]);
     const [currentTitle, setCurrentTitle] = useState(null);
 
     const createNewChat = () => {
-        setMessage(null);
-        setValue('');
-        setCurrentTitle(null);
-    };
+        setMessage(null)
+        setValue('')
+        setCurrentTitle(null)
+    }
 
     const handleClick = (uniqueTitle) => {
-        setCurrentTitle(uniqueTitle);
-        setMessage(null);
-        setValue('');
-    };
+        setCurrentTitle(uniqueTitle)
+        setMessage(null)
+        setValue('')
+    }
 
     const getMessages = async () => {
         const options = {
             method: 'POST',
-            body: JSON.stringify({ prompt: value, max_tokens: 100 }),
+            body : JSON.stringify ({
+                message: value
+            }),
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer YOUR_OPENAI_API_KEY' // Replace 'YOUR_OPENAI_API_KEY' with your actual API key
+                'Content-Type':  "application/json"
             }
-        };
+        }
 
-        try {
-            const response = await fetch('https://mern-petstore-backend.onrender.com/completions', options);
-            if (!response.ok) {
-                throw new Error('Failed to fetch messages');
-            }
-            const data = await response.json();
-
-            // Check if data.choices exists and has elements
-            if (data.choices && data.choices.length > 0) {
-                setMessage(data.choices[0].message);
-            } else {
-                // Handle the case when data.choices is empty or undefined
-                console.error('No choices found in the response data');
-                setMessage(null); // Reset message state
-            }
+        try{
+         const response =  await fetch('https://mern-petstore-backend.onrender.com/completions', options)
+         const data = await response.json()
+         setMessage(data.choices[0].message)
         } catch (error) {
-            console.error(error);
-        }
-    };
+            console.error(error)
 
-    useEffect(() => {
-        if (!currentTitle && value && message) {
-            setCurrentTitle(value);
         }
-        if (currentTitle && value && message) {
-            setPreviousChats(prevChats => ([
-                ...prevChats,
-                { title: currentTitle, role: 'user', content: value },
-                { title: currentTitle, role: message.role, content: message.content }
-            ]));
+    }
+
+    useEffect (() => {
+        console.log(currentTitle, value, message)
+        if(!currentTitle && value && message) {
+            setCurrentTitle(value)
         }
-    }, [message, currentTitle]);
+        if ( currentTitle && value && message) {
+            setPreviousChats(prevChats =>(
+                [...prevChats, 
+                {
+                    title: currentTitle,
+                    role: 'user',
+                    content: value
+                },
+                {
+                    title: currentTitle,
+                    role: message.role,
+                    content: message.content
 
-    const currentChat = previousChats.filter(chat => chat.title === currentTitle);
-    const uniqueTitles = Array.from(new Set(previousChats.map(chat => chat.title)));
+                }
+             ]
+            ))
+        }
+    }, [message, currentTitle, value])
 
+
+   const currentChat = previousChats.filter(previousChat => previousChat.title === currentTitle)
+ const uniqueTitles = Array.from(new Set(previousChats.map(previousChat => previousChat.title)))
+ console.log(uniqueTitles )
+
+ console.log(message)
     return (
         <div className='chatai'>
             <section className='side-bar'>
@@ -81,7 +86,7 @@ const ChatAi = () => {
             <section className='main'>
                 {!currentTitle && <h1>AdepatarGPT</h1>}
                 <ul className='feed'>
-                    {currentChat.map((chatMessage, index) => (
+                    {currentChat?.map((chatMessage, index) => (
                         <li key={index}>
                             <p className='role'>{chatMessage.role}</p>
                             <p>{chatMessage.content}</p>
@@ -90,7 +95,7 @@ const ChatAi = () => {
                 </ul>
                 <div className='bottom-section'>
                     <div className='input-container'>
-                        <input value={value} onChange={e => setValue(e.target.value)} />
+                        <input value={value} onChange={(e) => setValue(e.target.value)} />
                         <div id='submit' onClick={getMessages}>></div>
                         <p className='info'>
                             Chat GPT, Free Research Preview.
