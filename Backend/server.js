@@ -44,7 +44,7 @@ app.post('/completions', async (req, res) => {
     const options = {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${sk-cRezYK79kRded3j0dSVWT3BlbkFJuQUzeSVXdLMDLKzB3ibAY}`,
+        "Authorization": `Bearer ${API_KEY}`,
         "Content-Type": 'application/json'
       },
       body: JSON.stringify({
