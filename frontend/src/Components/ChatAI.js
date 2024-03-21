@@ -27,91 +27,86 @@ const ChatAi = () => {
                 'Content-Type': 'application/json'
             }
         };
-    
+
         try {
             const response = await fetch('https://mern-petstore-backend.onrender.com/completions', options);
             const data = await response.json();
-    
-            if (data.choices && data.choices.length > 0) {
-                setMessage(data.choices[0].message);
-            } else {
-                console.error('No choices found in the response data');
-                setMessage('');
-            }
+            setMessage(data.choices[0].message)
         } catch (error) {
-            console.error('Error fetching or parsing data:', error);
-            setMessage('');
+            console.log(error)
         }
-    };
-    
-    useEffect(() => {
-        console.log(currentTitle, value, message)
-        if (!currentTitle && value && message) {
-            setCurrentTitle(value)
-        }
-        if (currentTitle && value && message) {
-            setPreviousChats(prevChats => (
-                [...prevChats,
-                {
-                    title: currentTitle,
-                    role: 'user',
-                    content: value
-                },
-                {
-                    title: currentTitle,
-                    role: message.role,
-                    content: message.content
+    }
+}
+    ;
 
-                }
-                ]
-            ))
-        }
-    }, [message, currentTitle])
+useEffect(() => {
+    console.log(currentTitle, value, message)
+    if (!currentTitle && value && message) {
+        setCurrentTitle(value)
+    }
+    if (currentTitle && value && message) {
+        setPreviousChats(prevChats => (
+            [...prevChats,
+            {
+                title: currentTitle,
+                role: 'user',
+                content: value
+            },
+            {
+                title: currentTitle,
+                role: message.role,
+                content: message.content
 
-
-    const currentChat = previousChats.filter(previousChat => previousChat.title === currentTitle)
-    const uniqueTitles = Array.from(new Set(previousChats.map(previousChat => previousChat.title)))
-    console.log(uniqueTitles)
+            }
+            ]
+        ))
+    }
+}, [message, currentTitle])
 
 
-    return (
-        <div className='chatai'>
-            <section className='side-bar'>
-                <button onClick={createNewChat}>+ New Chat</button>
-                <ul className='history'>
-                    {uniqueTitles.map((uniqueTitle, index) => (
-                        <li key={index} onClick={() => handleClick(uniqueTitle)}>{uniqueTitle}</li>
-                    ))}
-                </ul>
-                <nav>
-                    <p>Made by ADEPARTAR</p>
-                </nav>
-            </section>
-            <section className='main'>
-                {!currentTitle && <h1>AdepatarGPT</h1>}
-                <ul className='feed'>
-                    {currentChat?.map((chatMessage, index) => (
-                        <li key={index}>
-                            <p className='role'>{chatMessage.role}</p>
-                            <p>{chatMessage.content}</p>
-                        </li>
-                    ))}
-                </ul>
-                <div className='bottom-section'>
-                    <div className='input-container'>
-                        <input value={value} onChange={(e) => setValue(e.target.value)} />
-                        <button id='submit' onClick={getMessages}>Submit</button>
-                        <p className='info'>
-                            Chat GPT, Free Research Preview.
-                            Our goal is to make Ai systems more natural and safe to interact with.
-                            Your feedback will help us improve.
-                        </p>
-                    </div>
+const currentChat = previousChats.filter(previousChat => previousChat.title === currentTitle)
+const uniqueTitles = Array.from(new Set(previousChats.map(previousChat => previousChat.title)))
+console.log(uniqueTitles)
 
+
+return (
+    <div className='chatai'>
+        <section className='side-bar'>
+            <button onClick={createNewChat}>+ New Chat</button>
+            <ul className='history'>
+                {uniqueTitles.map((uniqueTitle, index) => (
+                    <li key={index} onClick={() => handleClick(uniqueTitle)}>{uniqueTitle}</li>
+                ))}
+            </ul>
+            <nav>
+                <p>Made by ADEPARTAR</p>
+            </nav>
+        </section>
+        <section className='main'>
+            {!currentTitle && <h1>AdepatarGPT</h1>}
+            <ul className='feed'>
+                {currentChat?.map((chatMessage, index) => (
+                    <li key={index}>
+                        <p className='role'>{chatMessage.role}</p>
+                        <p>{chatMessage.content}</p>
+                    </li>
+                ))}
+            </ul>
+            <div className='bottom-section'>
+                <div className='input-container'>
+                    <input value={value} onChange={(e) => setValue(e.target.value)} />
+                    <button id='submit' onClick={getMessages}>Submit</button>
+                    <p className='info'>
+                        Chat GPT, Free Research Preview.
+                        Our goal is to make Ai systems more natural and safe to interact with.
+                        Your feedback will help us improve.
+                    </p>
                 </div>
-            </section>
-        </div>
-    );
+
+            </div>
+        </section>
+    </div>
+);
 };
 
 export default ChatAi;
