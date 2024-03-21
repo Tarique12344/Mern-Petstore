@@ -25,13 +25,17 @@ const ChatAi = () => {
     const getMessages = async () => {
         const options = {
             method: 'POST',
-            body : JSON.stringify({ message: value }),
+            body : JSON.stringify ({
+                message: value
+            }),
+        
             headers: { 'Content-Type': 'application/json' }
         };
 
         try {
             const response = await fetch('https://mern-petstore-backend.onrender.com/completions', options);
             const data = await response.json();
+            console.log('Response data:', data);
             setMessage(data.choices[0].message);
         } catch (error) {
             console.error(error);
