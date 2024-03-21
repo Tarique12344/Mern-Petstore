@@ -74,7 +74,7 @@ const NavigationBar = () => {
             <Link className='nav-link' to="/contact">Contact Us</Link>
             <Link className='nav-link' to="/petform">Pet Form</Link>
             <Link className='nav-link' to="/donation">Donate</Link>
-            <Link className='nav-link' to="/chatai">Help</Link>
+           
             {isAuthenticated ? (
               <span onClick={handleLogout} style={{ cursor: 'pointer' }}>Logout</span>
             ) : (
