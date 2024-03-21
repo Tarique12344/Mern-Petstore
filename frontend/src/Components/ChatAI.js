@@ -30,7 +30,7 @@ const ChatAi = () => {
         };
 
         try {
-            const response = await fetch('https://api.openai.com/v1/completions', options);
+            const response = await fetch('https://mern-petstore-backend.onrender.com/completions', options);
             if (!response.ok) {
                 throw new Error('Failed to fetch messages');
             }
