@@ -47,6 +47,9 @@ const Cart = () => {
 
   return (
     <div>
+    <br></br>
+    <br></br>
+    <br></br>
       <h1 style={{ fontFamily: 'Arial', fontSize: '24px' }}>Your Cart:</h1>
 
       {state.cartItems.map((item) => (

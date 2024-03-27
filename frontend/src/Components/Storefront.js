@@ -9,7 +9,7 @@ const Storefront = () => {
   const { dispatch, state } = useCart();
   const [pets, setPets] = useState([]);
   const [notificationMessage, setNotificationMessage] = useState('');
-  const [showNotification, setShowNotification] = useState(false); // State for modal visibility
+const [showNotification, setShowNotification] = useState(false); // State for modal visibility
 
   useEffect(() => {
     const fetchPets = async () => {
@@ -46,7 +46,7 @@ const Storefront = () => {
       {/* Top Carousel */}
       <Carousel interval={5000} style={{ overflow: 'hidden' }}>
         {_.shuffle(pets).slice(0, 25).map((pet) => (
-          <Carousel.Item key={pet._id} style={{ height: '50vh' }}>
+          <Carousel.Item key={pet._id} style={{ height: '250px' }}>
             <img
               className="d-block w-100"
               src={pet.image}
